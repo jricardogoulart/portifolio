@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+/* Design Tokens from Floema, Tribe & Archidomo */
+:root {
+  /* Floema Color Tokens */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-red: #ff004d;
+  --color-creme: #f4efd7;
+  --color-flourYellow: #e9e778;
+  --color-brightIvory: #fcf9f2;
+  --color-stoneBrown: #7a6656;
+  --color-forestGreen: #2d4a3e;
+  --color-natureKraft: #c6af88;
+  --color-urbanCoral: #f76c46;
+  --color-golfCeladon: #bacfa3;
+  --color-replasticVistaBlue: #85a1c5;
+  
+  /* Extended Palette */
+  --color-primary-orange: #ff6b35;
+  --color-primary-blue: #4a90e2;
+  --color-secondary-green: #2d5d4a;
+  --color-accent-purple: #9b59b6;
+  
+  /* Dark Theme */
+  --color-bg-dark: #0a0a0a;
+  --color-bg-dark-secondary: #141414;
+  --color-bg-dark-tertiary: #1a1a1a;
+  --color-text-dark: #e5e5e5;
+  --color-text-muted: #999999;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+/* Unique Magnetic Cursor Effect */
+@keyframes magneticPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Liquid Blob Animation */
+@keyframes blobMove {
+  0%, 100% { 
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% { 
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: translate(2%, -2%) rotate(90deg);
+  }
+  50% { 
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+    transform: translate(-2%, 2%) rotate(180deg);
+  }
+  75% { 
+    border-radius: 60% 40% 60% 40% / 70% 30% 50% 60%;
+    transform: translate(2%, 2%) rotate(270deg);
+  }
+}
+
+/* Rotating Border */
+@keyframes rotateBorder {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* Diagonal Wipe */
+@keyframes diagonalWipe {
+  from { clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%); }
+  to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+/* Morphing Shape */
+.morphing-blob {
+  animation: blobMove 15s ease-in-out infinite;
+}
+
+/* Text Reveal */
+@keyframes textReveal {
+  from { 
+    clip-path: inset(0 100% 0 0);
+  }
+  to { 
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(255, 0, 77, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(255, 0, 77, 0.6);
+  }
+}
+
+/* Smooth cursor */
+* {
+  cursor: none;
+}
+
+a, button, input, textarea {
+  cursor: none;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ff004d;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.1s ease;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: #ff004d;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  transition: transform 0.05s ease;
+}
+
+.cursor-hover .custom-cursor {
+  transform: scale(2);
+  background: rgba(255, 0, 77, 0.1);
+}
+
+/* Parallax layers */
+.parallax-layer {
+  will-change: transform;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+/* Grain Overlay Effect */
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Grid Pattern */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-red);
+  color: white;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-stoneBrown);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-natureKraft);
+}
