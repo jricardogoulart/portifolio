@@ -511,8 +511,8 @@ export default function About() {
               <div
                 className="group relative border border-white/10 bg-[#0f0f0f] overflow-hidden transition-all duration-500 hover:border-[#ff004d]/30"
                 style={{ clipPath: 'polygon(0 0, 100% 0, 100% 94%, 94% 100%, 0 100%)' }}
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
+                onMouseEnter={() => {}}
+                onMouseLeave={() => {}}
               >
                 {/* Top accent bar */}
                 <div className="h-[3px] w-full bg-gradient-to-r from-[#ff004d] via-[#f76c46] to-[#85a1c5]" />
@@ -802,7 +802,7 @@ export default function About() {
                     desc: ['Prototipagem de alta fidelidade no Figma.', 'Estruturação avançada de fluxos de usabilidade.']
                   }
                 ].map((item, i) => (
-                  <div key={i} className="relative group cursor-default" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+                  <div key={i} className="relative group cursor-default">
                     <div className="absolute -left-[41px] top-0 w-4 h-4 bg-[#0a0a0a] border-[1px] border-[#ff004d] group-hover:bg-[#ff004d] group-hover:scale-125 transition-all duration-300" style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}></div>
                     <span className="font-['JetBrains_Mono'] text-[10px] text-[#85a1c5] font-bold uppercase tracking-[0.2em] mb-4 block transition-colors group-hover:text-white">{item.date}</span>
                     <h4 className="font-['Syne'] text-2xl font-bold text-white/90 mb-4 transition-colors group-hover:text-white">{item.title}</h4>
