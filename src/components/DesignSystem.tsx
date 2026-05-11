@@ -8,8 +8,6 @@ import FloatingActions from './FloatingActions';
 
 // --- Types & Helper Components ---
 
-const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-
 interface SectionProps {
   id: string;
   number: string;
@@ -59,13 +57,6 @@ const CodeSnippet = ({ code }: { code: string }) => {
 export default function DesignSystem() {
   const [activeSection, setActiveSection] = useState('hero');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
-
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const cursorDotRef = useRef<HTMLDivElement>(null);
-  const mouse = useRef({ x: 0, y: 0 });
-  const cursor = useRef({ x: 0, y: 0 });
-  const rafRef = useRef<number>(0);
 
   const sections = [
     { id: 'hero', title: '00 Showcase', number: '00' },
@@ -81,45 +72,6 @@ export default function DesignSystem() {
     { id: 'motion', title: '10 Motion', number: '10' },
     { id: 'grids', title: '11 Patterns', number: '11' },
   ];
-
-  useEffect(() => {
-    const onMouseMove = (e: MouseEvent) => {
-      mouse.current = { x: e.clientX, y: e.clientY };
-    };
-    window.addEventListener('mousemove', onMouseMove, { passive: true });
-
-    const loop = () => {
-      cursor.current.x = lerp(cursor.current.x, mouse.current.x, 0.18);
-      cursor.current.y = lerp(cursor.current.y, mouse.current.y, 0.18);
-
-      if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate(${cursor.current.x - 10}px, ${cursor.current.y - 10}px)`;
-      }
-      if (cursorDotRef.current) {
-        cursorDotRef.current.style.transform = `translate(${mouse.current.x - 3}px, ${mouse.current.y - 3}px)`;
-      }
-
-      rafRef.current = requestAnimationFrame(loop);
-    };
-
-    rafRef.current = requestAnimationFrame(loop);
-
-    const onMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === 'A' || target.tagName === 'BUTTON' || target.closest('button') || target.closest('a')) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
-    };
-    window.addEventListener('mouseover', onMouseOver);
-
-    return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseover', onMouseOver);
-      cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -143,18 +95,6 @@ export default function DesignSystem() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
-      {/* Custom Cursor */}
-      <div
-        ref={cursorRef}
-        className={`custom-cursor ${isHovering ? 'cursor-hover' : ''}`}
-        style={{ transform: 'translate(-100px,-100px)' }}
-      />
-      <div
-        ref={cursorDotRef}
-        className="custom-cursor-dot"
-        style={{ transform: 'translate(-100px,-100px)' }}
-      />
-
       {/* Mobile Menu Toggle */}
       <button 
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}

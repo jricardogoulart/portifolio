@@ -3,22 +3,14 @@ import { gsap } from 'gsap';
 import { GraduationCap, Briefcase, MapPin, Mail, ArrowRight, Plus } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
 
-// ─── Lerp helper ─────────────────────────────────────────────────────────────
-const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-
 export default function About() {
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
   const blobsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const cursorDotRef = useRef<HTMLDivElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
-  const [isTyping, setIsTyping] = useState(false);
 
   // Tracked via ref so rAF loop doesn't need React state
   const mouse   = useRef({ x: 0, y: 0 });
-  const cursor  = useRef({ x: 0, y: 0 });
   const rafRef  = useRef<number>(0);
 
   // ── Entrance animations (run once on mount) ────────────────────────────────
@@ -232,30 +224,8 @@ export default function About() {
     };
   }, []);
 
-  // Determine cursor styling based on state
-  const cursorStyle = isTyping 
-    ? 'w-1 h-8 rounded-sm bg-[#ff004d] border-none mix-blend-normal' 
-    : isHovering 
-      ? 'scale-[2.5] bg-[#ff004d]/10 border-[#ff004d]/50' 
-      : '';
-
   return (
     <div ref={heroRef} className="bg-[#0a0a0a]">
-      {/* Custom Cursor */}
-      <div
-        ref={cursorRef}
-        className={`custom-cursor transition-all duration-300 ease-out ${cursorStyle}`}
-        style={{
-          width: isTyping ? '4px' : '20px',
-          height: isTyping ? '32px' : '20px',
-          borderRadius: isTyping ? '2px' : '50%'
-        }}
-      />
-      <div 
-        ref={cursorDotRef} 
-        className={`custom-cursor-dot transition-opacity duration-200 ${isTyping ? 'opacity-0' : 'opacity-100'}`} 
-      />
-
       {/* HERO SECTION */}
       <section
         ref={heroRef}
@@ -309,8 +279,6 @@ export default function About() {
               ref={titleRef}
               className="space-y-2"
               style={{ willChange: 'transform' }}
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
             >
               <div className="overflow-hidden">
                 <h1 className="hero-title-line font-['Syne'] text-[clamp(3rem,8vw,7rem)] font-bold leading-[0.85] tracking-[-0.04em] text-white">
@@ -780,7 +748,7 @@ export default function About() {
 
             {/* Profissional */}
             <div className="animate-on-scroll" style={{ animationDelay: '0.2s' }}>
-              <div className="flex items-center gap-6 mb-16 border-b border-white/10 pb-8" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+              <div className="flex items-center gap-6 mb-16 border-b border-white/10 pb-8">
                 <div className="w-14 h-14 border-2 border-[#85a1c5] bg-transparent flex items-center justify-center transition-transform hover:rotate-12">
                   <Briefcase className="text-[#85a1c5] w-7 h-7" />
                 </div>

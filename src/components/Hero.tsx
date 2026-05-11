@@ -2,20 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
 // ─── Lerp helper ─────────────────────────────────────────────────────────────
-const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-
 export default function Hero() {
   const heroRef    = useRef<HTMLDivElement>(null);
   const titleRef   = useRef<HTMLDivElement>(null);
   const cardsRef   = useRef<HTMLDivElement>(null);
   const blobsRef   = useRef<(HTMLDivElement | null)[]>([]);
-  const cursorRef  = useRef<HTMLDivElement>(null);
-  const cursorDotRef = useRef<HTMLDivElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
 
   // Tracked via ref so rAF loop doesn't need React state
   const mouse   = useRef({ x: 0, y: 0 });
-  const cursor  = useRef({ x: 0, y: 0 });
   const rafRef  = useRef<number>(0);
 
   // ── Entrance animations (run once on mount) ────────────────────────────────
@@ -209,18 +203,6 @@ export default function Hero() {
 
   return (
     <>
-      {/* Custom Cursor — transformed via rAF, no React state */}
-      <div
-        ref={cursorRef}
-        className={`custom-cursor ${isHovering ? 'cursor-hover' : ''}`}
-        style={{ transform: 'translate(-100px,-100px)' }}
-      />
-      <div
-        ref={cursorDotRef}
-        className="custom-cursor-dot"
-        style={{ transform: 'translate(-100px,-100px)' }}
-      />
-
       <section
         ref={heroRef}
         id="hero"
