@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { GraduationCap, Briefcase, MapPin, Mail, ArrowRight, Plus, Download, CheckCircle2, ExternalLink } from 'lucide-react';
+import { GraduationCap, Briefcase, MapPin, Mail, ArrowRight, Download, CheckCircle2, ExternalLink } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
 import AuroraBars from './AuroraBars';
+import { PixelLiquidBg } from './pixel-liquid-bg';
 
 // Linear interpolation function
 const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
@@ -22,9 +23,8 @@ export default function About() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorDotRef = useRef<HTMLDivElement>(null);
 
-  // State for hover/typing interactions
+  // State for hover interactions
   const [isHovering, setIsHovering] = useState(false);
-  const [isTyping, setIsTyping] = useState(false);
 
   // ── Entrance animations (run once on mount) ────────────────────────────────
   useEffect(() => {
@@ -239,10 +239,18 @@ export default function About() {
 
   return (
     <div ref={heroRef} className="bg-[#0a0a0a]">
-      {/* Custom Cursor */}
+      {/* Skip to content — acessibilidade */}
+      <a
+        href="#sobre"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#ff004d] focus:text-white focus:font-['Syne'] focus:text-sm focus:uppercase focus:tracking-wider"
+      >
+        Ir para o conteúdo
+      </a>
+
+      {/* Custom Cursor — oculto em touch */}
       <div
         ref={cursorRef}
-        className="pointer-events-none fixed z-50 w-5 h-5 border-2 border-[#ff004d]/50 rounded-full mix-blend-screen"
+        className="pointer-events-none fixed z-50 w-5 h-5 border-2 border-[#ff004d]/50 rounded-full mix-blend-screen hidden md:block"
         style={{
           transform: 'translate(-50%, -50%)',
           willChange: 'transform',
@@ -251,18 +259,19 @@ export default function About() {
       />
       <div
         ref={cursorDotRef}
-        className="pointer-events-none fixed z-50 w-1.5 h-1.5 bg-[#ff004d] rounded-full mix-blend-screen"
+        className="pointer-events-none fixed z-50 w-1.5 h-1.5 bg-[#ff004d] rounded-full mix-blend-screen hidden md:block"
         style={{
           transform: 'translate(-50%, -50%)',
           willChange: 'transform',
-          opacity: isTyping ? 0.3 : 0.8,
+          opacity: 0.8,
         }}
       />
       {/* HERO SECTION */}
       <section
         ref={heroRef}
         id="hero"
-        className="relative flex min-h-screen items-center overflow-hidden bg-[#0a0a0a] px-4 sm:px-6 lg:px-12 py-24 sm:py-28 lg:py-0"
+        aria-label="Apresentação"
+        className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[#0a0a0a] px-4 sm:px-6 lg:px-12 py-20 sm:py-24 lg:py-0"
       >
         {/* Aurora Bars Background — Floema Design System */}
         <div className="pointer-events-none absolute inset-0 z-0 opacity-80 sm:opacity-90">
@@ -512,7 +521,7 @@ export default function About() {
       {/* ---------------- REST OF THE PAGE ---------------- */}
 
       {/* SOBRE */}
-      <section id="sobre" className="relative z-10 py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-16 border-t border-white/5 bg-[#0a0a0a]">
+      <section id="sobre" aria-label="Sobre mim" className="relative z-10 py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-16 border-t border-white/5 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
 
           {/* Section header */}
@@ -558,6 +567,8 @@ export default function About() {
                           alt="José Goulart — GitHub Avatar"
                           width={96}
                           height={96}
+                          loading="eager"
+                          decoding="async"
                           className="block w-20 h-20 sm:w-24 sm:h-24 object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                           style={{ clipPath: 'polygon(0 0, 100% 0, 100% 88%, 88% 100%, 0 100%)' }}
                         />
@@ -677,7 +688,7 @@ export default function About() {
       </section>
 
       {/* COMPETÊNCIAS E TECNOLOGIAS */}
-      <section id="habilidades" className="relative z-10 py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-16 border-t border-white/5 bg-gradient-to-b from-[#141414] to-[#0a0a0a]">
+      <section id="habilidades" aria-label="Competências e tecnologias" className="relative z-10 py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-16 border-t border-white/5 bg-gradient-to-b from-[#141414] to-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8 md:mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 animate-on-scroll">
             <div>
@@ -785,7 +796,7 @@ export default function About() {
       </section>
 
       {/* CURRICULO & FORMAÇÃO */}
-      <section id="curriculo" className="relative z-10 py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-16 border-t border-white/5 bg-[#0a0a0a]">
+      <section id="curriculo" aria-label="Currículo e trajetória" className="relative z-10 py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-16 border-t border-white/5 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
           {/* Header with direct CV Download */}
           <div className="mb-8 md:mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 animate-on-scroll">
@@ -979,8 +990,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* PORTFOLIO (Seção 04 com escala compacta e elegante) */}
-      <section id="portifolio" className="relative z-10 py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-16 border-t border-white/5 bg-gradient-to-bl from-[#141414] to-[#0a0a0a]">
+      {/* PORTFOLIO */}
+      <section id="portifolio" aria-label="Projetos e portfólio" className="relative z-10 py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-16 border-t border-white/5 bg-gradient-to-bl from-[#141414] to-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8 md:mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 animate-on-scroll">
             <div>
@@ -1019,8 +1030,10 @@ export default function About() {
                 <div className="aspect-[16/10] mb-4 overflow-hidden border border-white/10 relative bg-[#121212]">
                   <div className="absolute inset-0 bg-[#ff004d]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10 pointer-events-none"></div>
                   <img
-                    src="/summer-cardapio.png"
+                    src="/summer-cardápio.webp"
                     alt="Summer Cardápio Digital — Beach Tennis & Bar"
+                    loading="eager"
+                    decoding="async"
                     className="w-full h-full object-cover object-top opacity-85 transition-transform duration-1000 group-hover:scale-105 group-hover:opacity-100"
                   />
                 </div>
@@ -1064,8 +1077,10 @@ export default function About() {
                 <div className="aspect-[16/10] mb-4 overflow-hidden border border-white/10 relative">
                   <div className="absolute inset-0 bg-[#85a1c5]/15 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
                   <img
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
-                    alt="Tyller Finance"
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+                    alt="Tyller Finance — Dashboard financeiro"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-70 transition-transform duration-1000 group-hover:scale-110 group-hover:opacity-100"
                   />
                 </div>
@@ -1100,8 +1115,10 @@ export default function About() {
                 <div className="aspect-[16/10] mb-4 overflow-hidden border border-white/10 relative">
                   <div className="absolute inset-0 bg-[#f76c46]/15 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
                   <img
-                    src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=1200&auto=format&fit=crop"
-                    alt="Mars Photos Explorer"
+                    src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=800&auto=format&fit=crop"
+                    alt="Mars Explorer — Fotos NASA de Marte"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-70 transition-transform duration-1000 group-hover:scale-110 group-hover:opacity-100"
                   />
                 </div>
@@ -1136,8 +1153,10 @@ export default function About() {
                 <div className="aspect-[16/10] mb-4 overflow-hidden border border-white/10 relative">
                   <div className="absolute inset-0 bg-[#bacfa3]/15 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
                   <img
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop"
-                    alt="ProFinance"
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
+                    alt="ProFinance — Inteligência financeira corporativa"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-70 transition-transform duration-1000 group-hover:scale-110 group-hover:opacity-100"
                   />
                 </div>
@@ -1172,8 +1191,10 @@ export default function About() {
                 <div className="aspect-[16/10] mb-4 overflow-hidden border border-white/10 relative">
                   <div className="absolute inset-0 bg-[#e9e778]/15 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
                   <img
-                    src="https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?q=80&w=1200&auto=format&fit=crop"
-                    alt="Pokédex Interativa"
+                    src="https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?q=80&w=800&auto=format&fit=crop"
+                    alt="Pokédex Interativa — catálogo de Pokémon"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-70 transition-transform duration-1000 group-hover:scale-110 group-hover:opacity-100"
                   />
                 </div>
@@ -1208,8 +1229,10 @@ export default function About() {
                 <div className="aspect-[16/10] mb-4 overflow-hidden border border-white/10 relative">
                   <div className="absolute inset-0 bg-[#85a1c5]/15 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
                   <img
-                    src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?q=80&w=1200&auto=format&fit=crop"
-                    alt="Calculadora Vue"
+                    src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?q=80&w=800&auto=format&fit=crop"
+                    alt="Calculadora Vue.js — componentes reativos"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-70 transition-transform duration-1000 group-hover:scale-110 group-hover:opacity-100"
                   />
                 </div>
@@ -1238,141 +1261,163 @@ export default function About() {
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="relative z-10 py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-16 border-t border-white/5 bg-[#0a0a0a]">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-8 md:mb-10 animate-on-scroll">
-            <div className="mb-2 font-['JetBrains_Mono'] text-xs uppercase tracking-[0.3em] text-[#ff004d]">
+      <section id="contato" className="relative z-10 py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-16 border-t border-white/5 bg-[#0a0a0a] overflow-hidden">
+        {/* Pixel Liquid Background — DS colors, very subtle */}
+        <div className="pointer-events-none absolute inset-0 z-0 opacity-20">
+          <PixelLiquidBg
+            darkPalette={['#0a0a0a', '#1a0a12', '#ff004d', '#f76c46', '#85a1c5']}
+            lightPalette={['#0a0a0a', '#1a0a12', '#ff004d', '#f76c46', '#85a1c5']}
+            pixelSize={14}
+            resolution={0.3}
+            mouseForce={5}
+            cursorSize={80}
+            autoDemo
+            className="w-full h-full"
+          />
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="mb-14 md:mb-20 animate-on-scroll text-center">
+            <div className="mb-3 font-['JetBrains_Mono'] text-xs uppercase tracking-[0.3em] text-[#ff004d]">
               / 05 Connect
             </div>
-            <h2 className="font-['Syne'] text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 leading-none">Contato</h2>
+            <h2 className="font-['Syne'] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-none mb-4">
+              Vamos<br />
+              <span style={{ background: 'linear-gradient(135deg, #ff004d 0%, #f76c46 60%, #e9e778 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                Conversar?
+              </span>
+            </h2>
+            <p className="font-['DM_Sans'] text-base sm:text-lg text-white/40 max-w-md mx-auto leading-relaxed">
+              Aberto a oportunidades, freelas e colaborações. Me encontre por qualquer um dos canais abaixo.
+            </p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14">
-            <div className="lg:col-span-5 space-y-8 md:space-y-10 animate-on-scroll">
-              <p className="font-['DM_Sans'] text-base sm:text-lg md:text-xl text-white/60 leading-relaxed font-light" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-                Construindo experiências digitais memoráveis. <br />
-                <strong className="text-white font-medium">Vamos conversar?</strong>
-              </p>
-
-              <div className="space-y-5 sm:space-y-6">
-                <div className="flex gap-4 items-center group cursor-default" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-                  <div className="w-11 h-11 border border-white/10 bg-transparent flex items-center justify-center shrink-0 text-white/50 transition-all duration-500 group-hover:border-[#ff004d] group-hover:text-[#ff004d] group-hover:bg-[#ff004d]/5" style={{ clipPath: 'polygon(15% 0, 100% 0, 85% 100%, 0 100%)' }}>
-                    <MapPin className="w-5 h-5 transition-transform group-hover:scale-110" />
-                  </div>
-                  <div>
-                    <h4 className="font-['JetBrains_Mono'] text-[9px] font-bold uppercase tracking-[0.2em] text-white/30 mb-1 transition-colors group-hover:text-[#ff004d]">Localização</h4>
-                    <p className="font-['Syne'] text-base sm:text-lg font-medium text-white/90">Franca, SP - Brasil</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 items-center group cursor-default" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-                  <div className="w-11 h-11 border border-white/10 bg-transparent flex items-center justify-center shrink-0 text-white/50 transition-all duration-500 group-hover:border-[#ff004d] group-hover:text-[#ff004d] group-hover:bg-[#ff004d]/5" style={{ clipPath: 'polygon(15% 0, 100% 0, 85% 100%, 0 100%)' }}>
-                    <Mail className="w-5 h-5 transition-transform group-hover:scale-110" />
-                  </div>
-                  <div>
-                    <h4 className="font-['JetBrains_Mono'] text-[9px] font-bold uppercase tracking-[0.2em] text-white/30 mb-1 transition-colors group-hover:text-[#ff004d]">E-Mail</h4>
-                    <a href="mailto:jricardogoulart@gmail.com" className="font-['Syne'] text-base sm:text-lg font-medium text-white/90 hover:text-[#ff004d] transition-colors break-all block">
-                      jricardogoulart@gmail.com
-                    </a>
-                  </div>
-                </div>
+          {/* Contact cards row */}
+          <div className="grid sm:grid-cols-2 gap-4 mb-8 animate-on-scroll">
+            {/* Location */}
+            <div
+              className="group flex items-center gap-5 p-6 border border-white/10 bg-white/[0.02] hover:border-[#ff004d]/40 hover:bg-[#ff004d]/[0.04] transition-all duration-500 cursor-default"
+              onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}
+            >
+              <div className="w-12 h-12 border border-white/10 bg-transparent flex items-center justify-center shrink-0 text-white/40 transition-all duration-500 group-hover:border-[#ff004d] group-hover:text-[#ff004d] group-hover:bg-[#ff004d]/5" style={{ clipPath: 'polygon(15% 0, 100% 0, 85% 100%, 0 100%)' }}>
+                <MapPin className="w-5 h-5 transition-transform group-hover:scale-110" />
               </div>
-
-              <div className="flex gap-3.5 pt-2">
-                {[
-                  { Icon: FaLinkedin, url: 'https://www.linkedin.com/in/jos%C3%A9-ricardo-goulart-silva-ab622a288/' },
-                  { Icon: FaGithub, url: 'https://github.com/jricardogoulart' },
-                  { Icon: FaInstagram, url: 'https://www.instagram.com/jricardogoulart/' },
-                  { Icon: FaTwitter, url: 'https://twitter.com/jricardogoulart' }
-                ].map((social, i) => {
-                  const SocialIcon = social.Icon;
-                  return (
-                    <a key={i} href={social.url} target="_blank" rel="noreferrer"
-                      className="magnetic-button w-10 sm:w-11 h-10 sm:h-11 border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white transition-all duration-300 relative overflow-hidden group"
-                      onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}
-                    >
-                      <div className="absolute inset-0 -z-10 bg-white opacity-0 transition-opacity duration-300 group-hover:opacity-10"></div>
-                      <SocialIcon className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
-                    </a>
-                  );
-                })}
+              <div>
+                <span className="font-['JetBrains_Mono'] text-[9px] font-bold uppercase tracking-[0.25em] text-white/30 group-hover:text-[#ff004d] transition-colors block mb-1">Localização</span>
+                <p className="font-['Syne'] text-lg sm:text-xl font-semibold text-white/90">Franca, SP — Brasil</p>
               </div>
             </div>
 
-            <div className="lg:col-span-7 animate-on-scroll" style={{ animationDelay: '0.2s' }}>
-              <form className="p-6 sm:p-8 lg:p-10 border border-white/10 bg-[#141414]/50 backdrop-blur-sm space-y-6 sm:space-y-8 relative overflow-hidden" onSubmit={(e) => e.preventDefault()}>
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#ff004d]/5 blur-[80px] pointer-events-none"></div>
-                <h3 className="mb-6 font-['Syne'] text-xl sm:text-2xl font-bold text-white" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-                  Envie uma Mensagem
-                </h3>
+            {/* Email */}
+            <a
+              href="mailto:jricardogoulart@gmail.com"
+              className="group flex items-center gap-5 p-6 border border-white/10 bg-white/[0.02] hover:border-[#ff004d]/40 hover:bg-[#ff004d]/[0.04] transition-all duration-500"
+              onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}
+            >
+              <div className="w-12 h-12 border border-white/10 bg-transparent flex items-center justify-center shrink-0 text-white/40 transition-all duration-500 group-hover:border-[#ff004d] group-hover:text-[#ff004d] group-hover:bg-[#ff004d]/5" style={{ clipPath: 'polygon(15% 0, 100% 0, 85% 100%, 0 100%)' }}>
+                <Mail className="w-5 h-5 transition-transform group-hover:scale-110" />
+              </div>
+              <div className="min-w-0">
+                <span className="font-['JetBrains_Mono'] text-[9px] font-bold uppercase tracking-[0.25em] text-white/30 group-hover:text-[#ff004d] transition-colors block mb-1">E-Mail</span>
+                <p className="font-['Syne'] text-lg sm:text-xl font-semibold text-white/90 group-hover:text-[#ff004d] transition-colors truncate">
+                  jricardogoulart@gmail.com
+                </p>
+              </div>
+              <ArrowRight className="w-5 h-5 text-white/20 group-hover:text-[#ff004d] group-hover:translate-x-1 transition-all duration-300 ml-auto shrink-0" />
+            </a>
+          </div>
 
-                <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-                  <div className="space-y-2.5">
-                    <label className="font-['JetBrains_Mono'] text-[9px] font-bold uppercase tracking-[0.2em] text-white/40">
-                      Seu Nome
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="text"
-                        placeholder="Como devemos lhe chamar?"
-                        className="w-full border-b-[1px] border-white/20 bg-transparent pb-2.5 font-['DM_Sans'] text-sm sm:text-base text-white placeholder-white/20 transition-all duration-300 focus:border-[#ff004d] focus:outline-none focus:bg-white/[0.02] px-1"
-                        onMouseEnter={() => setIsTyping(true)} onMouseLeave={() => setIsTyping(false)}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2.5">
-                    <label className="font-['JetBrains_Mono'] text-[9px] font-bold uppercase tracking-[0.2em] text-white/40">
-                      Seu Email
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="email"
-                        placeholder="Para respondermos..."
-                        className="w-full border-b-[1px] border-white/20 bg-transparent pb-2.5 font-['DM_Sans'] text-sm sm:text-base text-white placeholder-white/20 transition-all duration-300 focus:border-[#85a1c5] focus:outline-none focus:bg-white/[0.02] px-1"
-                        onMouseEnter={() => setIsTyping(true)} onMouseLeave={() => setIsTyping(false)}
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-2.5">
-                  <label className="font-['JetBrains_Mono'] text-[9px] font-bold uppercase tracking-[0.2em] text-white/40">
-                    Sua Mensagem
-                  </label>
-                  <textarea
-                    rows={3}
-                    placeholder="Conte sobre sua ideia ou projeto..."
-                    className="w-full border-[1px] border-white/10 bg-white/[0.02] p-3.5 font-['DM_Sans'] text-sm sm:text-base text-white placeholder-white/20 transition-all duration-300 focus:border-[#ff004d] focus:bg-white/[0.05] focus:outline-none resize-none"
-                    style={{ clipPath: 'polygon(0 0, 100% 0, 98% 100%, 0% 100%)' }}
-                    onMouseEnter={() => setIsTyping(true)} onMouseLeave={() => setIsTyping(false)}
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="magnetic-button group relative overflow-hidden bg-[#ff004d] px-8 py-3.5 font-['Syne'] text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-white hover:text-black w-full md:w-auto mt-2 shadow-lg shadow-[#ff004d]/20"
-                  style={{ clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)' }}
+          {/* Social links */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-10 animate-on-scroll" style={{ animationDelay: '0.1s' }}>
+            {[
+              { Icon: FaLinkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/jos%C3%A9-ricardo-goulart-silva-ab622a288/', color: '#85a1c5' },
+              { Icon: FaGithub, label: 'GitHub', url: 'https://github.com/jricardogoulart', color: '#ffffff' },
+              { Icon: FaInstagram, label: 'Instagram', url: 'https://www.instagram.com/jricardogoulart/', color: '#f76c46' },
+              { Icon: FaTwitter, label: 'Twitter / X', url: 'https://twitter.com/jricardogoulart', color: '#85a1c5' },
+            ].map((s, i) => {
+              const SocialIcon = s.Icon;
+              return (
+                <a
+                  key={i}
+                  href={s.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={s.label}
+                  title={s.label}
+                  className="magnetic-button group flex flex-col items-center justify-center gap-2.5 py-5 sm:py-6 border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-500 relative overflow-hidden"
+                  style={{ '--hover-color': s.color } as React.CSSProperties}
                   onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}
                 >
-                  <span className="relative z-10 flex items-center justify-center gap-3">
-                    Enviar Mensagem <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
-                  </span>
-                </button>
-              </form>
-            </div>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: `radial-gradient(circle at 50% 50%, ${s.color}10, transparent 70%)` }} />
+                  <SocialIcon className="w-5 h-5 text-white/40 group-hover:text-white transition-colors duration-300 relative z-10" />
+                  <span className="font-['JetBrains_Mono'] text-[8px] uppercase tracking-widest text-white/30 group-hover:text-white/60 transition-colors duration-300 relative z-10">{s.label}</span>
+                </a>
+              );
+            })}
+          </div>
+
+          {/* CTA principal */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-on-scroll" style={{ animationDelay: '0.2s' }}>
+            <a
+              href="mailto:jricardogoulart@gmail.com"
+              className="magnetic-button group relative overflow-hidden bg-[#ff004d] px-10 py-4 font-['Syne'] text-sm font-bold uppercase tracking-widest text-white transition-all hover:bg-white hover:text-black shadow-lg shadow-[#ff004d]/20 inline-flex items-center gap-3 w-full sm:w-auto justify-center"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)' }}
+              onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}
+            >
+              <Mail className="w-4 h-4" />
+              Enviar E-Mail
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </a>
+            <a
+              href="/curriculo-jose-ricardo-goulart.pdf"
+              download="Curriculo-Jose-Ricardo-Goulart.pdf"
+              className="magnetic-button group relative overflow-hidden border border-white/20 bg-transparent px-10 py-4 font-['Syne'] text-sm font-bold uppercase tracking-widest text-white transition-all hover:border-white hover:bg-white/5 inline-flex items-center gap-3 w-full sm:w-auto justify-center"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)' }}
+              onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}
+            >
+              <Download className="w-4 h-4" />
+              Baixar CV
+            </a>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="relative z-10 py-12 border-t border-white/10 text-center bg-[#0a0a0a]">
-        <p className="font-['JetBrains_Mono'] text-xs text-white/40 mb-3" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-          &copy; {new Date().getFullYear()} <strong className="text-white/80 font-semibold">José R. Goulart</strong>.
-        </p>
-        <p className="font-['JetBrains_Mono'] text-[9px] font-bold text-white/20 uppercase tracking-[0.3em]">
-          Powered by Archetype Design
-        </p>
+      <footer className="relative z-10 py-10 sm:py-12 border-t border-white/10 bg-[#0a0a0a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+          {/* Nav links */}
+          <nav aria-label="Navegação do rodapé" className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8">
+            {[
+              { href: '#sobre', label: '01 Sobre' },
+              { href: '#habilidades', label: '02 Skills' },
+              { href: '#curriculo', label: '03 Currículo' },
+              { href: '#portifolio', label: '04 Projetos' },
+              { href: '#contato', label: '05 Contato' },
+            ].map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="font-['JetBrains_Mono'] text-[9px] uppercase tracking-[0.25em] text-white/30 hover:text-[#ff004d] transition-colors duration-300"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Divider */}
+          <div className="h-px w-full bg-white/5 mb-8" />
+
+          {/* Bottom row */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="font-['JetBrains_Mono'] text-[10px] text-white/30">
+              &copy; {new Date().getFullYear()} <strong className="text-white/50 font-semibold">José Ricardo Goulart</strong> — Todos os direitos reservados.
+            </p>
+            <p className="font-['JetBrains_Mono'] text-[9px] font-bold text-white/15 uppercase tracking-[0.3em]">
+              Built with React · Vite · TypeScript
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   );
