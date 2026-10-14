@@ -1,190 +1,135 @@
-<div align="center">
+# José Ricardo Goulart — Portfolio
 
-  <!-- Header Banner -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=1,12,24&height=200&section=header&text=José%20Ricardo%20Goulart&fontSize=42&fontColor=ffffff&fontAlignY=38&desc=Full%20Stack%20Developer%20%E2%80%A2%20Systems%20Analyst%20%E2%80%A2%20UI%2FUX%20Designer&descAlignY=60&descSize=17" width="100%" alt="José Ricardo Goulart — Portfólio Banner" />
-
-  <!-- Animated Typing Tagline -->
-  <a href="https://jricardogoulart.github.io">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&pause=1000&color=38BDF8&center=true&vCenter=true&width=720&lines=Full+Stack+Developer+%E2%80%A2+Systems+Analyst;React+19+%E2%80%A2+TypeScript+%E2%80%A2+Vite+%E2%80%A2+Tailwind+CSS;GSAP+Animations+%E2%80%A2+Three.js+%E2%80%A2+Design+Tokens;Formado+em+ADS+pela+FATEC+Franca+%F0%9F%8E%93;Transformando+requisitos+em+experi%C3%AAncias+memor%C3%A1veis" alt="Typing Tagline" />
-  </a>
-
-  <br>
-
-  <!-- Status & Tech Badges -->
-  <p>
-    <a href="https://jricardogoulart.github.io" target="_blank">
-      <img src="https://img.shields.io/badge/Live%20Demo-Online-00f59b?style=for-the-badge&logo=vercel&logoColor=black" alt="Live Demo" />
-    </a>
-    <img src="https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19" />
-    <img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-    <img src="https://img.shields.io/badge/Vite-7.2-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-    <img src="https://img.shields.io/badge/GSAP-3.15-0AE448?style=for-the-badge&logo=greensock&logoColor=black" alt="GSAP" />
-    <img src="https://img.shields.io/badge/TailwindCSS-4.1-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
-  </p>
-
-</div>
-
----
-
-<div align="center">
-  <h3><code>jricardo@portfolio ~ $ whoami --verbose</code></h3>
-</div>
-
-```json
-{
-  "name": "José Ricardo Goulart Silva",
-  "role": "Analista de TI & Desenvolvedor Full Stack",
-  "specialization": "Full Stack Architecture & High-End UI/UX Design",
-  "education": "Análise e Desenvolvimento de Sistemas (ADS) @ FATEC Franca (Doutor Thomaz Novelino)",
-  "location": "Franca, SP — Brasil 🇧🇷",
-  "current_position": {
-    "company": "R Raimundo Da Silva Franca",
-    "impact": "Ecossistema de gestão de ordens de serviço (Node.js, React, Docker) para 35 indústrias parceiras"
-  },
-  "contact": {
-    "email": "jricardogoulart@gmail.com",
-    "linkedin": "https://www.linkedin.com/in/jricardogoulart/",
-    "portfolio": "https://jricardogoulart.github.io"
-  }
-}
-```
-
----
-
-<div align="center">
-  <h3><code>jricardo@portfolio ~ $ ./overview.sh</code></h3>
-</div>
-
-Este repositório armazena o código-fonte do meu **Portfólio Oficial**. Trata-se de uma aplicação web de alta performance construída para unir engenharia de software sólida a uma estética visual moderna, fluida e interativa.
-
-- ⚡ **Experiência Interativa:** Efeitos de física real, cursor customizado com física inercial, tracking de mouse em camadas e botões magnéticos alimentados por **GSAP 3**.
-- 🎨 **Design System Autoral:** Tipografia suíça/moderna (*Syne*, *DM Sans*, *IBM Plex Mono*), paleta cromática expressiva e harmônica de 24 tons, tokens de espaçamento e clip-paths diagonais.
-- 🧪 **Backgrounds Reativos:** Aurora animada em canvas e simulação de fluidos por pixels reativa à movimentação do cursor.
-- 📱 **Mobile-First & Acessibilidade:** 100% responsivo, com tags semânticas, suporte a leitores de tela (*skip to content*) e degradação suave de efeitos pesados para economia de bateria e GPU em dispositivos móveis.
-
----
-
-<div align="center">
-  <h3><code>jricardo@portfolio ~ $ ./tech-stack.sh</code></h3>
-</div>
-
-<p align="center">
-  <b>Frontend &amp; Core</b><br>
-  <img src="https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React 19" />
-  <img src="https://img.shields.io/badge/TypeScript_5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Vite_7-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-  <img src="https://img.shields.io/badge/TailwindCSS_4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+<p align="left">
+  <strong>Desenvolvedor Full Stack & Analista de Sistemas</strong> focado em arquiteturas escaláveis, engenharia de front-end de alta fidelidade e interfaces interativas.
 </p>
 
-<p align="center">
-  <b>Creative, Motion &amp; 3D</b><br>
-  <img src="https://img.shields.io/badge/GSAP_3-0AE448?style=for-the-badge&logo=greensock&logoColor=black" alt="GSAP 3" />
-  <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white" alt="Three.js" />
-  <img src="https://img.shields.io/badge/Motion-000000?style=for-the-badge&logo=framer&logoColor=white" alt="Motion" />
-  <img src="https://img.shields.io/badge/Lucide_Icons-F56565?style=for-the-badge&logo=feather&logoColor=white" alt="Lucide Icons" />
-  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Figma" />
+<p align="left">
+  <a href="https://jricardogoulart.github.io"><strong>Ver Demonstração Online ↗</strong></a> &nbsp;•&nbsp;
+  <a href="https://www.linkedin.com/in/jricardogoulart/">LinkedIn</a> &nbsp;•&nbsp;
+  <a href="https://github.com/jricardogoulart">GitHub</a> &nbsp;•&nbsp;
+  <a href="mailto:jricardogoulart@gmail.com">Contato</a>
 </p>
 
-<p align="center">
-  <b>Backend, DevOps &amp; Cloud</b><br>
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
-  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+<p align="left">
+  <img src="https://img.shields.io/badge/status-production-10b981?style=flat-square" alt="Status" />
+  <img src="https://img.shields.io/badge/react-19-06b6d4?style=flat-square" alt="React 19" />
+  <img src="https://img.shields.io/badge/typescript-5.9-3b82f6?style=flat-square" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/vite-7-6366f1?style=flat-square" alt="Vite" />
+  <img src="https://img.shields.io/badge/tailwind-v4-0ea5e9?style=flat-square" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/gsap-3.15-22c55e?style=flat-square" alt="GSAP" />
 </p>
 
 ---
 
-<div align="center">
-  <h3><code>jricardo@portfolio ~ $ ./projects.sh --featured</code></h3>
-</div>
+## Visão Geral
 
-| Projeto | Descrição | Stack Principal | Acesso |
-| :--- | :--- | :--- | :---: |
-| 🏖️ **Summer Cardápio** | Cardápio digital interativo e mobile-first para esportes e bar de praia. | JavaScript, CSS3, GitHub Pages | [Live Demo](https://jricardogoulart.github.io/summer-cardapio/) • [GitHub](https://github.com/jricardogoulart/summer-cardapio) |
-| 💳 **Tyller Finance** | Plataforma de planejamento e finanças pessoais com foco em tipagem estrita e UX. | TypeScript, React, Tailwind | [GitHub](https://github.com/jricardogoulart/tyller-finance) |
-| 🚀 **Mars Explorer** | Aplicação de visualização de fotografias dos rovers marcianos com a API oficial da NASA. | Vue.js, NASA API, REST | [GitHub](https://github.com/jricardogoulart/mars-photos) |
-| 📊 **ProFinance** | Sistema analítico para inteligência financeira corporativa e controle de conciliação. | JavaScript, Gestão, Data Viz | [GitHub](https://github.com/jricardogoulart/profinance) |
-| ⚡ **Pokédex Interativa** | Interface interativa com filtragem por tipos e busca dinâmica. | JavaScript ES6+, CSS Grid | [GitHub](https://github.com/jricardogoulart/pokedex) |
-| 🧮 **Calculadora Vue** | Calculadora reativa demonstrando manipulação fina de estados e arquitetura modular. | Vue.js, Components | [GitHub](https://github.com/jricardogoulart/CalculadoraVue) |
+Repositório oficial do meu portfólio pessoal. Desenvolvido para apresentar minha trajetória, competências técnicas e projetos em produção, unindo precisão visual, performance máxima e microinterações cinematográficas sem o uso de templates genéricos.
+
+- **Stack Moderna**: Desenvolvido com React 19, TypeScript estrito e Vite.
+- **Microinterações com Física**: GSAP 3 orquestrando botões magnéticos, paralaxe multi-camadas e cursor responsivo.
+- **Canvas & Shaders**: Simulação de fluidos por pixels reativa ao mouse (*Pixel Liquid*) e Aurora Bars em tempo real.
+- **Design System Autoral**: Tipografia editorial (*Syne*, *DM Sans*, *IBM Plex Mono*), tokens cromáticos e cortes angulares.
+- **Otimização de GPU**: Renderização a 60fps sustentada com composição via transforms e `will-change`, prevenindo *layout reflows*.
 
 ---
 
-<div align="center">
-  <h3><code>jricardo@portfolio ~ $ ./features.sh --interactive</code></h3>
-</div>
+## Stack Técnica
 
 ```
-├── 🎯 Custom Cursor           # Dot + anel inercial com efeito mix-blend-screen (oculto em touch)
-├── 🧲 Magnetic Buttons         # Elementos interativos atraídos suavemente pelo cursor com GSAP
-├── 🌌 Parallax Multi-layer     # Tipografia e cards 3D flutuantes com velocidades desacopladas
-├── 🌊 Aurora Bars Shader       # Fundo responsivo de barras dinâmicas iluminadas
-├── 🧪 Pixel Liquid Background  # Canvas interativo gerando ondas fluídas ao passar o mouse
-├── 📐 Diagonal Tokens          # Clip-paths angulares modernos para botões, cards e badges
-└── 📦 GPU-First Optimization   # Uso exclusivo de transforms e will-change sem reflow de layout
+Camada                Tecnologias
+────────────────────────────────────────────────────────────────────────
+Core                  React 19 · TypeScript 5.9 · Vite 7
+Estilização           Tailwind CSS v4 · Custom CSS Tokens
+Animações & Shaders   GSAP 3 · Three.js · Motion
+Ícones & Tipografia   Lucide Icons · Syne · DM Sans · IBM Plex Mono
+Qualidade & Deploy    ESLint · Vercel · GitHub Actions
 ```
 
 ---
 
-<div align="center">
-  <h3><code>jricardo@portfolio ~ $ ./quickstart.sh</code></h3>
-</div>
+## Destaques de Engenharia & Interatividade
 
-Para rodar este projeto em seu ambiente local:
+- **Cursor Dinâmico Inercial**: Dot central e anel orbital com suavização via interpolação linear (`lerp`), desativado automaticamente em telas touch.
+- **Botões Magnéticos**: Zona de atração com cálculo dinâmico de distância euclidiana (`Math.hypot`).
+- **Paralaxe por Profundidade**: Deslocamento desacoplado entre títulos, cartões flutuantes 3D e formas orgânicas.
+- **Acessibilidade Nativa**: Navegação por teclado com atalho *skip to content*, semântica HTML5 e contraste validado WCAG.
+
+---
+
+## Projetos em Destaque
+
+| Projeto | Descrição | Stack | Links |
+| :--- | :--- | :--- | :--- |
+| **Summer Cardápio** | Cardápio digital responsivo com categorização fluida e experiência mobile-first para beach sports & bar. | JavaScript, CSS3 | [Deploy](https://jricardogoulart.github.io/summer-cardapio/) · [Repo](https://github.com/jricardogoulart/summer-cardapio) |
+| **Tyller Finance** | Plataforma para gestão orçamentária pessoal com tipagem estrita e dashboard financeiro. | TypeScript, React, Tailwind | [Repo](https://github.com/jricardogoulart/tyller-finance) |
+| **Mars Explorer** | Aplicação interativa consumindo a API oficial da NASA para exploração de imagens dos rovers em Marte. | Vue.js, NASA API, REST | [Repo](https://github.com/jricardogoulart/mars-photos) |
+| **ProFinance** | Sistema de inteligência financeira corporativa voltado à conciliação e relatórios de fluxo de caixa. | JavaScript, Gestão | [Repo](https://github.com/jricardogoulart/profinance) |
+| **Pokédex Interativa** | Interface com filtros rápidos por categoria, busca reativa e layout com CSS Grid. | JavaScript, CSS3 | [Repo](https://github.com/jricardogoulart/pokedex) |
+| **Calculadora Vue** | Aplicação de cálculo com manipulação reativa de estado e modularização de componentes. | Vue.js, Components | [Repo](https://github.com/jricardogoulart/CalculadoraVue) |
+
+---
+
+## Estrutura do Projeto
+
+```
+Portifólio/
+├── public/
+│   ├── curriculo-jose-ricardo-goulart.pdf   # Currículo para download
+│   └── summer-cardápio.webp                # Assets estáticos
+├── src/
+│   ├── components/
+│   │   ├── About.tsx                       # Componente principal do portfólio
+│   │   ├── AuroraBars.tsx                  # Shader de barras em canvas
+│   │   ├── pixel-liquid-bg.tsx             # Shader interativo de pixel liquid
+│   │   └── ...                             # Componentes do design system
+│   ├── index.css                           # Configuração Tailwind v4 e tokens
+│   ├── main.tsx                            # Ponto de montagem React 19
+│   └── App.tsx                             # Entry point da aplicação
+├── package.json
+└── vite.config.ts
+```
+
+---
+
+## Executando Localmente
+
+Requisitos: Node.js 18+ e npm.
 
 ```bash
-# 1. Clone o repositório
+# Clone o repositório
 git clone https://github.com/jricardogoulart/portifolio.git
 
-# 2. Acesse a pasta do projeto
+# Acesse a pasta
 cd portifolio
 
-# 3. Instale as dependências
+# Instale os pacotes
 npm install
 
-# 4. Inicie o servidor de desenvolvimento Vite
+# Inicie o servidor de desenvolvimento
 npm run dev
+```
 
-# 5. Gere o build de produção otimizado
+Build de produção:
+
+```bash
 npm run build
+npm run preview
 ```
 
 ---
 
-<div align="center">
+## Sobre o Autor
 
-  <h3><code>jricardo@portfolio ~ $ ./links.sh --connect</code></h3>
+**José Ricardo Goulart Silva**  
+Analista de TI e Desenvolvedor Full Stack na R Raimundo Da Silva, responsável pela arquitetura e sustentação de ecossistemas digitais que atendem 35 indústrias parceiras. Graduado em Análise e Desenvolvimento de Sistemas pela FATEC Franca.
 
-  <p><b>Tem um projeto ou oportunidade em mente? Vamos bater um papo:</b></p>
+- **LinkedIn**: [/in/jricardogoulart](https://www.linkedin.com/in/jricardogoulart/)
+- **GitHub**: [@jricardogoulart](https://github.com/jricardogoulart)
+- **Email**: [jricardogoulart@gmail.com](mailto:jricardogoulart@gmail.com)
 
-  <a href="https://www.linkedin.com/in/jricardogoulart/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-jricardogoulart-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  &nbsp;
-  <a href="mailto:jricardogoulart@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-jricardogoulart%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
-  </a>
-  &nbsp;
-  <a href="mailto:jricardogoulartsilva@outlook.com">
-    <img src="https://img.shields.io/badge/Outlook-jricardogoulartsilva%40outlook.com-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white" alt="Outlook" />
-  </a>
-  &nbsp;
-  <a href="https://www.instagram.com/jricardogt/" target="_blank">
-    <img src="https://img.shields.io/badge/Instagram-jricardogt-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
-  </a>
-  &nbsp;
-  <a href="https://github.com/jricardogoulart" target="_blank">
-    <img src="https://img.shields.io/badge/GitHub-jricardogoulart-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-  </a>
+---
 
-  <br><br>
-
-  <!-- Footer Banner -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=1,12,24&height=100&section=footer" width="100%" alt="Footer Banner" />
-
-  <p><code>jricardo@portfolio ~ $ exit 0</code></p>
-
-</div>
+<p align="center">
+  <small>© 2026 José Ricardo Goulart · Feito com React 19, TypeScript e GSAP.</small>
+</p>
