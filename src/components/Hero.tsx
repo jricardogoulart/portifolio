@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import AuroraBars from './AuroraBars';
 
 // ─── Lerp helper ─────────────────────────────────────────────────────────────
 export default function Hero() {
@@ -138,18 +139,6 @@ export default function Hero() {
       const mx = mouse.current.x;
       const my = mouse.current.y;
 
-      // ── Cursor (fast lerp for snappy dot, slow for ring)
-      cursor.current.x = lerp(cursor.current.x, mx, 0.18);
-      cursor.current.y = lerp(cursor.current.y, my, 0.18);
-
-      if (cursorRef.current) {
-        cursorRef.current.style.transform =
-          `translate(${cursor.current.x - 10}px, ${cursor.current.y - 10}px)`;
-      }
-      if (cursorDotRef.current) {
-        cursorDotRef.current.style.transform = `translate(${mx - 3}px, ${my - 3}px)`;
-      }
-
       // ── Title parallax (subtle)
       if (titleRef.current && titleRect) {
         const cx = titleRect.left + titleRect.width  / 2;
@@ -206,22 +195,40 @@ export default function Hero() {
       <section
         ref={heroRef}
         id="hero"
-        className="relative flex min-h-screen items-center overflow-hidden bg-[#0a0a0a] px-6"
+        className="relative flex min-h-screen items-center overflow-hidden bg-[#0a0a0a] px-4 sm:px-6 lg:px-12 py-24 sm:py-28 lg:py-0"
       >
-        {/* Morphing Blobs — GPU-promoted */}
+        {/* Aurora Bars Background — Floema Design System */}
+        <div className="pointer-events-none absolute inset-0 z-0 opacity-80 sm:opacity-90">
+          <AuroraBars
+            barCount={26}
+            mobileBarCount={13}
+            maxHeightRatio={0.88}
+            mobileMaxHeightRatio={0.68}
+            minHeightRatio={0.16}
+            mobileMinHeightRatio={0.10}
+            speed={1.05}
+            mobileSpeed={0.85}
+            gap={3.5}
+            mobileGap={2}
+            blur={6}
+            mobileBlur={4}
+          />
+        </div>
+
+        {/* Morphing Blobs — GPU-promoted (atmospheric accent glow) */}
         <div
           ref={(el) => { blobsRef.current[0] = el; }}
-          className="morphing-blob pointer-events-none absolute left-[10%] top-[20%] h-[500px] w-[500px] bg-gradient-to-br from-[#ff004d]/20 to-[#f76c46]/10 blur-[100px]"
+          className="morphing-blob pointer-events-none absolute left-[10%] top-[20%] h-[350px] sm:h-[500px] w-[350px] sm:w-[500px] bg-gradient-to-br from-[#ff004d]/15 to-[#f76c46]/10 blur-[90px] sm:blur-[110px]"
           style={{ mixBlendMode: 'screen', willChange: 'transform' }}
         />
         <div
           ref={(el) => { blobsRef.current[1] = el; }}
-          className="morphing-blob pointer-events-none absolute right-[15%] bottom-[25%] h-[600px] w-[600px] bg-gradient-to-tl from-[#85a1c5]/20 to-[#4a90e2]/10 blur-[120px]"
+          className="morphing-blob pointer-events-none absolute right-[10%] bottom-[20%] h-[400px] sm:h-[600px] w-[400px] sm:w-[600px] bg-gradient-to-tl from-[#85a1c5]/15 to-[#4a90e2]/10 blur-[100px] sm:blur-[130px]"
           style={{ mixBlendMode: 'screen', willChange: 'transform' }}
         />
         <div
           ref={(el) => { blobsRef.current[2] = el; }}
-          className="morphing-blob pointer-events-none absolute left-[40%] bottom-[10%] h-[400px] w-[400px] bg-gradient-to-tr from-[#bacfa3]/15 to-[#2d4a3e]/10 blur-[90px]"
+          className="morphing-blob pointer-events-none absolute left-[35%] bottom-[5%] h-[300px] sm:h-[400px] w-[300px] sm:w-[400px] bg-gradient-to-tr from-[#bacfa3]/12 to-[#2d4a3e]/10 blur-[80px] sm:blur-[100px]"
           style={{ mixBlendMode: 'screen', willChange: 'transform' }}
         />
 
@@ -239,13 +246,13 @@ export default function Hero() {
           }}
         />
 
-        <div className="relative z-10 grid w-full max-w-7xl grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
+        <div className="relative z-10 grid w-full max-w-7xl grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
           {/* Left Column */}
-          <div className="space-y-8 text-left">
+          <div className="space-y-6 sm:space-y-8 text-left">
             {/* Overline */}
-            <div className="hero-subtitle inline-flex items-center gap-3 rounded-full border border-white/10 px-4 py-2 backdrop-blur-sm">
+            <div className="hero-subtitle inline-flex items-center gap-3 rounded-full border border-white/10 px-4 py-2 backdrop-blur-sm bg-white/[0.02]">
               <div className="h-2 w-2 animate-pulse rounded-full bg-[#ff004d]" />
-              <span className="font-['IBM_Plex_Mono'] text-xs uppercase tracking-[0.3em] text-white/60">
+              <span className="font-['IBM_Plex_Mono'] text-[11px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-white/60">
                 Design Tokens v2.0
               </span>
             </div>
@@ -253,17 +260,17 @@ export default function Hero() {
             {/* Heading */}
             <div
               ref={titleRef}
-              className="space-y-2"
+              className="space-y-1 sm:space-y-2"
               style={{ willChange: 'transform' }}
             >
               <div className="overflow-hidden">
-                <h1 className="hero-title-line font-['Syne'] text-[clamp(3rem,8vw,7rem)] font-bold leading-[0.85] tracking-[-0.04em] text-white">
+                <h1 className="hero-title-line font-['Syne'] text-[clamp(2.75rem,8vw,7rem)] font-bold leading-[0.88] tracking-[-0.04em] text-white">
                   DESIGN
                 </h1>
               </div>
               <div className="overflow-hidden">
                 <h1
-                  className="hero-title-line font-['Syne'] text-[clamp(3rem,8vw,7rem)] font-bold leading-[0.85] tracking-[-0.04em]"
+                  className="hero-title-line font-['Syne'] text-[clamp(2.75rem,8vw,7rem)] font-bold leading-[0.88] tracking-[-0.04em]"
                   style={{
                     background: 'linear-gradient(135deg, #ff004d 0%, #f76c46 50%, #e9e778 100%)',
                     WebkitBackgroundClip: 'text',
@@ -276,34 +283,30 @@ export default function Hero() {
             </div>
 
             {/* Subtitle */}
-            <p className="hero-subtitle max-w-lg font-['DM_Sans'] text-lg leading-relaxed text-white/50">
-              Sistema interativo de design tokens. Experimente os efeitos com seu mouse.
-              <span className="italic text-white/70"> Movimento. Paralaxe. Magnetismo.</span>
+            <p className="hero-subtitle max-w-lg font-['DM_Sans'] text-base sm:text-lg leading-relaxed text-white/60">
+              Sistema interativo de design tokens. Experimente os efeitos com seu toque ou mouse.
+              <span className="italic text-white/80"> Movimento. Paralaxe. Magnetismo.</span>
             </p>
 
-            {/* Magnetic Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
+            {/* Magnetic Buttons — full-width on mobile for effortless tap */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
               <button
-                className="magnetic-button hero-button group relative overflow-hidden border-2 border-[#ff004d] bg-[#ff004d] px-8 py-4 font-['Syne'] text-sm font-semibold uppercase tracking-wider text-white"
+                className="magnetic-button hero-button group relative overflow-hidden border-2 border-[#ff004d] bg-[#ff004d] px-6 sm:px-8 py-3.5 sm:py-4 font-['Syne'] text-xs sm:text-sm font-semibold uppercase tracking-wider text-white text-center transition-all"
                 style={{
                   transform: 'translate(var(--mx, 0px), var(--my, 0px))',
                   transition: 'background 0.3s, border-color 0.3s',
                   willChange: 'transform',
                 }}
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
               >
                 <span className="relative z-10">Explorar Sistema</span>
               </button>
 
               <button
-                className="magnetic-button hero-button group relative overflow-hidden border-2 border-white/20 bg-transparent px-8 py-4 font-['Syne'] text-sm font-semibold uppercase tracking-wider text-white"
+                className="magnetic-button hero-button group relative overflow-hidden border-2 border-white/20 bg-transparent px-6 sm:px-8 py-3.5 sm:py-4 font-['Syne'] text-xs sm:text-sm font-semibold uppercase tracking-wider text-white text-center transition-all"
                 style={{
                   transform: 'translate(var(--mx, 0px), var(--my, 0px))',
                   willChange: 'transform',
                 }}
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
               >
                 <div
                   className="absolute inset-0 -translate-x-full bg-white/5 transition-transform duration-500 group-hover:translate-x-0"
@@ -313,30 +316,30 @@ export default function Hero() {
               </button>
             </div>
 
-            {/* Stats */}
-            <div className="flex items-center gap-8 border-l-2 border-[#ff004d] pl-6">
+            {/* Stats — wrapped comfortably on narrow mobile screens */}
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-6 sm:gap-8 border-l-2 border-[#ff004d] pl-4 sm:pl-6">
               <div className="hero-stat">
-                <div className="font-['Syne'] text-3xl font-bold text-white">24</div>
-                <div className="font-['IBM_Plex_Mono'] text-xs uppercase tracking-wider text-white/40">Colors</div>
+                <div className="font-['Syne'] text-2xl sm:text-3xl font-bold text-white">24</div>
+                <div className="font-['IBM_Plex_Mono'] text-[11px] sm:text-xs uppercase tracking-wider text-white/40">Colors</div>
               </div>
-              <div className="h-8 w-px bg-white/10" />
+              <div className="h-8 w-px bg-white/10 hidden sm:block" />
               <div className="hero-stat">
-                <div className="font-['Syne'] text-3xl font-bold text-white">3</div>
-                <div className="font-['IBM_Plex_Mono'] text-xs uppercase tracking-wider text-white/40">Typefaces</div>
+                <div className="font-['Syne'] text-2xl sm:text-3xl font-bold text-white">3</div>
+                <div className="font-['IBM_Plex_Mono'] text-[11px] sm:text-xs uppercase tracking-wider text-white/40">Typefaces</div>
               </div>
-              <div className="h-8 w-px bg-white/10" />
+              <div className="h-8 w-px bg-white/10 hidden sm:block" />
               <div className="hero-stat">
-                <div className="font-['Syne'] text-3xl font-bold text-white">∞</div>
-                <div className="font-['IBM_Plex_Mono'] text-xs uppercase tracking-wider text-white/40">Interactive</div>
+                <div className="font-['Syne'] text-2xl sm:text-3xl font-bold text-white">∞</div>
+                <div className="font-['IBM_Plex_Mono'] text-[11px] sm:text-xs uppercase tracking-wider text-white/40">Interactive</div>
               </div>
             </div>
           </div>
 
-          {/* Right Column — Cards */}
-          <div ref={cardsRef} className="relative hidden h-[600px] lg:block">
+          {/* Right Column — Cards (balanced rightward alignment, 100% visible) */}
+          <div ref={cardsRef} className="relative hidden h-[600px] lg:block ml-auto w-full max-w-[460px]">
             {/* Card 1 */}
             <div
-              className="hero-card absolute left-0 top-0 h-72 w-80 border border-white/10 bg-gradient-to-br from-[#ff004d] to-[#f76c46] p-8 shadow-2xl"
+              className="hero-card absolute left-6 top-0 h-72 w-80 border border-white/10 bg-gradient-to-br from-[#ff004d] to-[#f76c46] p-8 shadow-2xl"
               data-rotation="-6"
               style={{
                 transform: 'rotate(-6deg) translate(var(--px,0px), var(--py,0px))',
@@ -375,7 +378,7 @@ export default function Hero() {
 
             {/* Card 3 */}
             <div
-              className="hero-card absolute left-32 top-64 h-72 w-80 border border-white/10 bg-gradient-to-br from-[#bacfa3] to-[#2d4a3e] p-8 shadow-2xl"
+              className="hero-card absolute left-28 top-64 h-72 w-80 border border-white/10 bg-gradient-to-br from-[#bacfa3] to-[#2d4a3e] p-8 shadow-2xl"
               data-rotation="-3"
               style={{
                 transform: 'rotate(-3deg) translate(var(--px,0px), var(--py,0px))',
