@@ -121,14 +121,7 @@
   }
 }
 
-/* Smooth cursor */
-* {
-  cursor: none;
-}
-
-a, button, input, textarea {
-  cursor: none;
-}
+/* Cursor customizado sutil (decorativo, sem anular o ponteiro nativo do SO) */
 
 /* Custom Cursor — transform driven by rAF loop */
 .custom-cursor {

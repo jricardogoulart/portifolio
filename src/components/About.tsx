@@ -148,16 +148,16 @@ export default function About() {
     };
   }, []);
 
-  // ── Single rAF loop: cursor + parallax (lerp-smoothed, no layout thrash) ──
+  // ── Single rAF loop: cursor + parallax otimizado (zero layout thrash) ──
   useEffect(() => {
-    // Cache card rects once; refresh on resize
     let cardRects: DOMRect[] = [];
     let titleRect: DOMRect | null = null;
+    let cachedCards: HTMLElement[] = [];
 
     const refreshRects = () => {
       titleRect = titleRef.current?.getBoundingClientRect() ?? null;
-      const cards = cardsRef.current?.querySelectorAll<HTMLElement>('.hero-card') ?? [];
-      cardRects = Array.from(cards).map((c) => c.getBoundingClientRect());
+      cachedCards = Array.from(cardsRef.current?.querySelectorAll<HTMLElement>('.hero-card') ?? []);
+      cardRects = cachedCards.map((c) => c.getBoundingClientRect());
     };
 
     refreshRects();
@@ -169,24 +169,23 @@ export default function About() {
     };
     window.addEventListener('mousemove', onMouseMove, { passive: true });
 
-    // rAF loop — all animation happens here, zero GSAP calls per frame
+    // rAF loop — leve, 60/120fps garantidos sem tocar no layout
     const loop = () => {
       const mx = mouse.current.x;
       const my = mouse.current.y;
 
-      // ── Cursor (fast lerp for snappy dot, slow for ring)
-      cursor.current.x = lerp(cursor.current.x, mx, 0.18);
-      cursor.current.y = lerp(cursor.current.y, my, 0.18);
+      // ── Cursor follower
+      cursor.current.x = lerp(cursor.current.x, mx, 0.22);
+      cursor.current.y = lerp(cursor.current.y, my, 0.22);
 
       if (cursorRef.current) {
-        cursorRef.current.style.transform =
-          `translate(${cursor.current.x - 10}px, ${cursor.current.y - 10}px)`;
+        cursorRef.current.style.transform = `translate(${cursor.current.x - 10}px, ${cursor.current.y - 10}px)`;
       }
       if (cursorDotRef.current) {
         cursorDotRef.current.style.transform = `translate(${mx - 3}px, ${my - 3}px)`;
       }
 
-      // ── Title parallax (subtle)
+      // ── Title parallax (somente se título existir)
       if (titleRef.current && titleRect) {
         const cx = titleRect.left + titleRect.width / 2;
         const cy = titleRect.top + titleRect.height / 2;
@@ -195,9 +194,8 @@ export default function About() {
         titleRef.current.style.transform = `translate(${dx}px, ${dy}px)`;
       }
 
-      // ── Cards parallax (depth-layered)
-      const cards = cardsRef.current?.querySelectorAll<HTMLElement>('.hero-card') ?? [];
-      cards.forEach((card, i) => {
+      // ── Cards parallax (usando elementos e retângulos cacheados)
+      cachedCards.forEach((card, i) => {
         const rect = cardRects[i];
         if (!rect) return;
         const cx = rect.left + rect.width / 2;
@@ -205,24 +203,8 @@ export default function About() {
         const factor = 35 + i * 12;
         const dx = (mx - cx) / factor;
         const dy = (my - cy) / factor;
-        // Blend with existing transform carefully — only override x/y offset
         card.style.setProperty('--px', `${dx}px`);
         card.style.setProperty('--py', `${dy}px`);
-      });
-
-      // ── Magnetic buttons
-      document.querySelectorAll<HTMLElement>('.magnetic-button').forEach((btn) => {
-        const r = btn.getBoundingClientRect();
-        const cx = r.left + r.width / 2;
-        const cy = r.top + r.height / 2;
-        const dist = Math.hypot(mx - cx, my - cy);
-        if (dist < 110) {
-          btn.style.setProperty('--mx', `${(mx - cx) / 3.5}px`);
-          btn.style.setProperty('--my', `${(my - cy) / 3.5}px`);
-        } else {
-          btn.style.setProperty('--mx', '0px');
-          btn.style.setProperty('--my', '0px');
-        }
       });
 
       rafRef.current = requestAnimationFrame(loop);

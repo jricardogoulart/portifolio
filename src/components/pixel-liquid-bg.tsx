@@ -947,10 +947,11 @@ export function PixelLiquidBg({
     ro.observe(container);
 
     let raf = 0;
-    let running = true;
+    let running = false;
+    let inViewport = false;
 
     const loop = () => {
-      if (!running) return;
+      if (!running || !inViewport) return;
       raf = requestAnimationFrame(loop);
       driver?.update();
       mouse.update();
@@ -963,13 +964,29 @@ export function PixelLiquidBg({
         r.render(outputScene, outputCam);
       }
     };
-    loop();
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        inViewport = entry.isIntersecting;
+        if (inViewport && !document.hidden) {
+          if (!running) {
+            running = true;
+            loop();
+          }
+        } else {
+          running = false;
+          cancelAnimationFrame(raf);
+        }
+      },
+      { threshold: 0.05 }
+    );
+    io.observe(container);
 
     const onVisibility = () => {
       if (document.hidden) {
         running = false;
         cancelAnimationFrame(raf);
-      } else {
+      } else if (inViewport) {
         running = true;
         loop();
       }
@@ -979,6 +996,7 @@ export function PixelLiquidBg({
     return () => {
       running = false;
       cancelAnimationFrame(raf);
+      io.disconnect();
       ro.disconnect();
       themeObserver.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);

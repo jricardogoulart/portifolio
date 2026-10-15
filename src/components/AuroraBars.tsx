@@ -132,6 +132,16 @@ export function AuroraBars({
   const activeBlur = isMobile ? mobileBlur : blur;
 
   const timeRef = React.useRef(0);
+  const isVisible = React.useRef(true);
+
+  React.useEffect(() => {
+    if (!containerRef.current) return;
+    const io = new IntersectionObserver(([entry]) => {
+      isVisible.current = entry.isIntersecting;
+    }, { threshold: 0.05 });
+    io.observe(containerRef.current);
+    return () => io.disconnect();
+  }, []);
 
   // Track pointer / touch position relative to the container for interactive ripple
   const handlePointerMove = React.useCallback(
@@ -151,8 +161,9 @@ export function AuroraBars({
   }, []);
 
   // Direct GPU transform manipulation inside animation frame
-  // Avoids 60+ React re-renders per second, ensuring buttery smooth 60/120fps on mobile
+  // Pauses automatically when off-screen to save 100% GPU / battery
   useAnimationFrame((_, delta) => {
+    if (!isVisible.current) return;
     timeRef.current += (delta / 1000) * activeSpeed;
     const t = timeRef.current;
     const p = pointerPos.current;
