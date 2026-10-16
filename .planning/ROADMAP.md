@@ -20,10 +20,10 @@
 
 **Goal:** Implementar o design system fundamental extraído de `design.md`: variáveis e tokens de cor (`--color-bg-primary: #D8D8D8`, `--color-text-primary: #111111`, `--color-accent-orange: #FF5C1A`, `--color-border-frame: #AAAACC`), regra de `--radius-all: 0px` (zero border-radius em todo o site) e a moldura fixa externa de 8px solid ao redor de todo o viewport (`100vw × 100vh`).
 **Requirements:** Regras de Tokens, Cores, Shape e Layout de `design.md`
-**Plans:** 0 plans
+**Plans:** 1 plan
 
 Plans:
-- [ ] TBD (promote with /gsd-review-backlog when ready)
+- [ ] Plan 999.2-01: Sistema de Design Tokens, Paleta Editorial e Moldura Viewport
 
 ### Phase 999.3: Tipografia Editorial Brutalista e Layout Split Hero (design.md) (BACKLOG)
 
