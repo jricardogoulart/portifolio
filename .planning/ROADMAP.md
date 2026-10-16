@@ -29,10 +29,10 @@ Plans:
 
 **Goal:** Implementar a estrutura tipográfica editorial massiva e o layout split do hero: H1 em dois fragmentos full bleed (`CREATIVE` no topo-esquerda e `DEVELOPER` na base-direita com overflow), escala com `clamp(5rem, 14vw, 16rem)`, peso 900 (ultra-bold / black), tracking negativo `-0.02em`, entrelinha comprimida `0.85`, e tipografia monospace caps com tracking expansivo (`0.15em`) para labels, bio e metadados.
 **Requirements:** Regras Tipográficas e de Layout de `design.md`
-**Plans:** 0 plans
+**Plans:** 1 plan
 
 Plans:
-- [ ] TBD (promote with /gsd-review-backlog when ready)
+- [ ] Plan 999.3-01: Tipografia Editorial Brutalista e Layout Split Hero
 
 ### Phase 999.4: Objeto 3D Central Orgânico com Three.js / WebGL Shader (design.md) (BACKLOG)
 
