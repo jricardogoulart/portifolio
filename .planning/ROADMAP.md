@@ -38,10 +38,10 @@ Plans:
 
 **Goal:** Construir o elemento central de identidade visual: um blob orgânico procedural 3D em Three.js posicionado no centro absoluto do viewport (entre `CREATIVE` e `DEVELOPER`), com shader simulando subsurface scattering (`#FF7A5A` fill, `#FFB0A0` highlight, `#CC4422` sombra), morphing contínuo infinito, reação a hover e gatilho com o botão "PRESS PLAY".
 **Requirements:** Regras de 3D Object, Motion & Efeitos Visuais de `design.md`
-**Plans:** 0 plans
+**Plans:** 1 plan
 
 Plans:
-- [ ] TBD (promote with /gsd-review-backlog when ready)
+- [ ] Plan 999.4-01: Objeto 3D Central Orgânico com Three.js / WebGL Shader
 
 ### Phase 999.5: Navegação Editorial, Marcas de Registro Crosshairs e Relógio ao Vivo (design.md) (BACKLOG)
 
