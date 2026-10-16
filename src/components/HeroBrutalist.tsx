@@ -35,17 +35,17 @@ export default function HeroBrutalist() {
       <span className="hero-crosshair hero-crosshair-bl" aria-hidden="true">+</span>
       <span className="hero-crosshair hero-crosshair-br" aria-hidden="true">+</span>
 
-      {/* Top Split Display Headline */}
-      <div className="hero-row-top">
-        <h1 className="hero-split-text hero-text-top">CREATIVE</h1>
-      </div>
-
-      {/* Central Anchor for 3D WebGL Blob (Phase 999.4) */}
+      {/* Central Anchor for 3D WebGL Blob (Camada de trás) */}
       <div className="hero-center-anchor" id="hero-3d-portal" aria-hidden="true">
         <OrganicBlob3D />
       </div>
 
-      {/* Bottom Split Display Headline */}
+      {/* Top Split Display Headline (Na frente do Blob) */}
+      <div className="hero-row-top">
+        <h1 className="hero-split-text hero-text-top">CREATIVE</h1>
+      </div>
+
+      {/* Bottom Split Display Headline (Na frente do Blob) */}
       <div className="hero-row-bottom">
         <div className="hero-split-text hero-text-bottom">DEVELOPER</div>
       </div>

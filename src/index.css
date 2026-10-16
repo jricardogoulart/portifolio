@@ -277,20 +277,23 @@ html {
 }
 
 .hero-row-top {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  z-index: 2;
+  z-index: 10;
 }
 
 .hero-row-bottom {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  z-index: 2;
+  z-index: 10;
 }
 
 .hero-split-text {
+  position: relative;
   font-family: var(--font-display);
   font-size: clamp(4.5rem, 14vw, 16rem);
   font-weight: 900;
@@ -302,6 +305,7 @@ html {
   padding: 0;
   user-select: none;
   pointer-events: none;
+  z-index: 10;
 }
 
 .hero-text-top {
@@ -325,7 +329,7 @@ html {
   width: clamp(280px, 35vw, 500px);
   height: clamp(280px, 35vw, 500px);
   pointer-events: none;
-  z-index: 10;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
