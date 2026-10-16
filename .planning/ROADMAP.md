@@ -41,7 +41,7 @@ Plans:
 **Plans:** 1 plan
 
 Plans:
-- [ ] Plan 999.4-01: Objeto 3D Central Orgânico com Three.js / WebGL Shader
+- [x] Plan 999.4-01: Objeto 3D Central Orgânico com Three.js / WebGL Shader
 
 ### Phase 999.5: Navegação Editorial, Marcas de Registro Crosshairs e Relógio ao Vivo (design.md) (BACKLOG)
 

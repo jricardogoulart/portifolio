@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import OrganicBlob3D from './OrganicBlob3D';
 
 /**
  * HeroBrutalist - Inspired by runrobrun.com
@@ -35,7 +36,7 @@ export default function HeroBrutalist() {
 
       {/* Central Anchor for 3D WebGL Blob (Phase 999.4) */}
       <div className="hero-center-anchor" id="hero-3d-portal" aria-hidden="true">
-        {/* Placeholder for 3D Blob */}
+        <OrganicBlob3D />
       </div>
 
       {/* Bottom Split Display Headline */}
