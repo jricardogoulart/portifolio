@@ -5,5 +5,11 @@ import About from './components/About';
  * Directly renders the complete portfolio experience without Design System toggle.
  */
 export default function App() {
-  return <About />;
+  return (
+    <>
+      <div className="viewport-frame" aria-hidden="true" />
+      <About />
+    </>
+  );
 }
+

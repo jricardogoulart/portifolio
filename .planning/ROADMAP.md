@@ -23,7 +23,7 @@
 **Plans:** 1 plan
 
 Plans:
-- [ ] Plan 999.2-01: Sistema de Design Tokens, Paleta Editorial e Moldura Viewport
+- [x] Plan 999.2-01: Sistema de Design Tokens, Paleta Editorial e Moldura Viewport
 
 ### Phase 999.3: Tipografia Editorial Brutalista e Layout Split Hero (design.md) (BACKLOG)
 

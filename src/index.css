@@ -1,45 +1,65 @@
 @import "tailwindcss";
 
-/* Design Tokens from Floema, Tribe & Archidomo */
+/* Design Tokens from design.md (runrobrun.com) */
 :root {
-  /* Floema Color Tokens */
-  --color-black: #000000;
-  --color-white: #ffffff;
-  --color-red: #ff004d;
-  --color-creme: #f4efd7;
-  --color-flourYellow: #e9e778;
-  --color-brightIvory: #fcf9f2;
-  --color-stoneBrown: #7a6656;
-  --color-forestGreen: #2d4a3e;
-  --color-natureKraft: #c6af88;
-  --color-urbanCoral: #f76c46;
-  --color-golfCeladon: #bacfa3;
-  --color-replasticVistaBlue: #85a1c5;
-  
-  /* Extended Palette */
-  --color-primary-orange: #ff6b35;
-  --color-primary-blue: #4a90e2;
-  --color-secondary-green: #2d5d4a;
-  --color-accent-purple: #9b59b6;
-  
-  /* Dark Theme */
-  --color-bg-dark: #0a0a0a;
-  --color-bg-dark-secondary: #141414;
-  --color-bg-dark-tertiary: #1a1a1a;
-  --color-text-dark: #e5e5e5;
-  --color-text-muted: #999999;
-  
+  /* ── PALETTE EDITORIAL ─────────────────────────────── */
+  --color-bg-primary:       #D8D8D8;   /* cinza pérola quente — fundo principal */
+  --color-bg-secondary:     #C8C8CC;   /* cinza levemente azulado — variação */
+  --color-bg-overlay:       rgba(220, 220, 225, 0.9); /* overlay hero */
+
+  --color-text-primary:     #111111;   /* preto quase puro — texto principal */
+  --color-text-secondary:   #333333;   /* cinza escuro — labels, meta */
+  --color-text-inverted:    #ffffff;   /* branco — sobre fundos escuros */
+
+  --color-accent-orange:    #FF5C1A;   /* laranja vibrante — ponto focal único */
+  --color-accent-orange-sq: #FF4500;   /* variante — quadrado decorativo no nav */
+
+  --color-border-frame:     #AAAACC;   /* azul acinzentado — borda de tela/frame */
+  --color-border-crosshair: #888888;   /* cinza — crosshair + nos guias de registro */
+  --border-frame-width:     8px;
+
+  /* 3D Object — blob orgânico */
+  --color-3d-primary:       #FF7A5A;   /* coral/pêssego — fill do blob */
+  --color-3d-secondary:     #FFB0A0;   /* rosa claro — highlight */
+  --color-3d-shadow:        #CC4422;   /* vermelho escuro — sombra subsurface */
+
+  /* Shape & Bordas */
+  --radius-all:             0px;       /* zero border-radius em todo o site */
+
   /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 4rem;
-  --spacing-xl: 6rem;
-  
+  --space-xs:               4px;
+  --space-sm:               8px;
+  --space-md:               16px;
+  --space-lg:               32px;
+  --space-xl:               64px;
+  --space-2xl:              120px;
+  --space-3xl:              200px;
+
   /* Typography */
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
+  --font-display:           'Neue Haas Grotesk Display', 'Helvetica Neue', Arial, sans-serif;
+  --font-body:              'Neue Haas Grotesk Display', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:              'Courier New', Courier, monospace;
+
+  /* Motion */
+  --ease-organic:           cubic-bezier(0.33, 0, 0.67, 1);
+  --ease-snap:              cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-hover:         200ms;
+}
+
+/* Reset brutalista universal: 0px border-radius em todos os elementos */
+*, *::before, *::after {
+  border-radius: var(--radius-all, 0px) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Moldura externa fixa ao redor do viewport */
+.viewport-frame {
+  position: fixed;
+  inset: 0;
+  border: var(--border-frame-width, 8px) solid var(--color-border-frame, #AAAACC);
+  pointer-events: none;
+  z-index: 9999;
 }
 
 /* Unique Magnetic Cursor Effect */
@@ -172,8 +192,11 @@
 
 body {
   font-family: var(--font-body);
-  background: var(--color-bg-dark);
-  color: var(--color-text-dark);
+  background-color: var(--color-bg-primary, #D8D8D8);
+  color: var(--color-text-primary, #111111);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 /* Grain Overlay Effect */
@@ -217,8 +240,8 @@ html {
 
 /* Selection */
 ::selection {
-  background: var(--color-red);
-  color: white;
+  background: var(--color-accent-orange, #FF5C1A);
+  color: #ffffff;
 }
 
 /* Custom Scrollbar */
@@ -227,14 +250,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-dark-secondary);
+  background: var(--color-bg-secondary, #C8C8CC);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-stoneBrown);
-  border-radius: 4px;
+  background: var(--color-border-frame, #AAAACC);
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-natureKraft);
+  background: var(--color-accent-orange, #FF5C1A);
 }

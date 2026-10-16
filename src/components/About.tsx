@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { GraduationCap, Briefcase, MapPin, Mail, ArrowRight, Download, CheckCircle2, ExternalLink } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
-import AuroraBars from './AuroraBars';
-import { PixelLiquidBg } from './pixel-liquid-bg';
 
 // Linear interpolation function
 const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
