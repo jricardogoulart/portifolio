@@ -47,10 +47,10 @@ Plans:
 
 **Goal:** Construir os componentes de interface editorial minimalista: navegação fixa no topo com branding à esquerda e links monospace à direita finalizando no marcador de ação `LET'S CREATE ■` com quadrado laranja (`#FF4500`), marcas tipográficas de registro `+` (crosshairs) nos 4 cantos do viewport, e metadados dinâmicos com relógio em tempo real (`LOCATION: PORTUGAL / BRAZIL · HH:MM:SS`).
 **Requirements:** Regras de Componentes & Padrões UI de `design.md`
-**Plans:** 0 plans
+**Plans:** 1 plan
 
 Plans:
-- [ ] TBD (promote with /gsd-review-backlog when ready)
+- [ ] Plan 999.5-01: Navegação Editorial, Marcas de Registro Crosshairs e Relógio ao Vivo
 
 ### Phase 999.6: Textura Noise Grain de Fundo e Motion Choreography (design.md) (BACKLOG)
 
