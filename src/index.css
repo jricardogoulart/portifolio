@@ -261,3 +261,120 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent-orange, #FF5C1A);
 }
+
+/* ── HERO BRUTALIST LAYOUT & DISPLAY TYPOGRAPHY ── */
+.hero-brutalist-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--color-bg-primary, #D8D8D8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.hero-row-top {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  z-index: 2;
+}
+
+.hero-row-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 2;
+}
+
+.hero-split-text {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 14vw, 16rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-text-primary, #111111);
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+.hero-text-top {
+  align-self: flex-start;
+  padding-left: 1.5rem;
+  padding-top: 2rem;
+}
+
+.hero-text-bottom {
+  align-self: flex-end;
+  padding-right: 1.5rem;
+  padding-bottom: 2rem;
+  text-align: right;
+}
+
+.hero-center-anchor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(280px, 35vw, 500px);
+  height: clamp(280px, 35vw, 500px);
+  pointer-events: none;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-meta-left {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  max-width: 340px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  letter-spacing: 0.12em;
+  color: var(--color-text-secondary, #333333);
+  text-transform: uppercase;
+  z-index: 20;
+}
+
+.hero-meta-label {
+  display: block;
+  font-weight: 700;
+  color: var(--color-text-primary, #111111);
+  margin-bottom: 0.25rem;
+}
+
+.hero-bio-text {
+  margin: 0;
+  color: var(--color-text-secondary, #333333);
+}
+
+.hero-meta-right {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-secondary, #333333);
+  text-transform: uppercase;
+  z-index: 20;
+}
+
+.hero-clock {
+  font-weight: 700;
+  color: var(--color-text-primary, #111111);
+}
+

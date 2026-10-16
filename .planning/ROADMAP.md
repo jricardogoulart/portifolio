@@ -32,7 +32,7 @@ Plans:
 **Plans:** 1 plan
 
 Plans:
-- [ ] Plan 999.3-01: Tipografia Editorial Brutalista e Layout Split Hero
+- [x] Plan 999.3-01: Tipografia Editorial Brutalista e Layout Split Hero
 
 ### Phase 999.4: Objeto 3D Central Orgânico com Three.js / WebGL Shader (design.md) (BACKLOG)
 
