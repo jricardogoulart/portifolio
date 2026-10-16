@@ -29,6 +29,12 @@ export default function HeroBrutalist() {
 
   return (
     <section className="hero-brutalist-container" aria-label="Hero Section">
+      {/* 4-Corner Swiss Registration Crosshairs */}
+      <span className="hero-crosshair hero-crosshair-tl" aria-hidden="true">+</span>
+      <span className="hero-crosshair hero-crosshair-tr" aria-hidden="true">+</span>
+      <span className="hero-crosshair hero-crosshair-bl" aria-hidden="true">+</span>
+      <span className="hero-crosshair hero-crosshair-br" aria-hidden="true">+</span>
+
       {/* Top Split Display Headline */}
       <div className="hero-row-top">
         <h1 className="hero-split-text hero-text-top">CREATIVE</h1>

@@ -50,7 +50,7 @@ Plans:
 **Plans:** 1 plan
 
 Plans:
-- [ ] Plan 999.5-01: Navegação Editorial, Marcas de Registro Crosshairs e Relógio ao Vivo
+- [x] Plan 999.5-01: Navegação Editorial, Marcas de Registro Crosshairs e Relógio ao Vivo
 
 ### Phase 999.6: Textura Noise Grain de Fundo e Motion Choreography (design.md) (BACKLOG)
 
