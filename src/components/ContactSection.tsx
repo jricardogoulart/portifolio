@@ -5,8 +5,8 @@ const PHRASES = [
   "Vamos criar algo que importa.",
   "Vamos otimizar as suas operações.",
   "Vamos superar os obstáculos.",
-  "Vamos otimizar as suas Métricas.",
-  "Vamos dar sentido ao que importa."
+  "Vamos otimizar as suas métricas.",
+  "Vamos inovar juntos."
 ];
 
 export default function ContactSection() {
