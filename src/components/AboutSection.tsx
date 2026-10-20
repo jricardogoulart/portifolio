@@ -46,12 +46,43 @@ export default function AboutSection({
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    const section = containerRef.current;
+    if (!video || !section) return;
 
     video.muted = true;
-    void video.play().catch((error: unknown) => {
-      console.warn('Não foi possível iniciar o vídeo de fundo automaticamente.', error);
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute('webkit-playsinline', '');
+
+    let sectionIsVisible = false;
+    const playVideo = () => {
+      if (!sectionIsVisible || document.visibilityState !== 'visible' || !video.paused) return;
+
+      void video.play().catch((error: unknown) => {
+        console.warn('Não foi possível iniciar o vídeo de fundo automaticamente.', error);
+      });
+    };
+    const onVisibilityChange = () => {
+      if (!document.hidden) playVideo();
+    };
+    const onPointerDown = () => playVideo();
+
+    const observer = new IntersectionObserver(([entry]) => {
+      sectionIsVisible = entry.isIntersecting;
+      if (sectionIsVisible) playVideo();
     });
+
+    observer.observe(section);
+    video.addEventListener('canplay', playVideo);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    document.addEventListener('pointerdown', onPointerDown, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      video.removeEventListener('canplay', playVideo);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      document.removeEventListener('pointerdown', onPointerDown);
+    };
   }, []);
 
   const updateWordProgress = useCallback(() => {
