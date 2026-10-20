@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Project, BUILTIN_ART } from '../data/portfolioData';
+import ArrowIcon from './ArrowIcon';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -129,7 +130,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               rel="noopener noreferrer"
               style={{ background: 'var(--orange)', color: '#000', fontWeight: 600 }}
             >
-              Acessar Deploy Online <span className="arrow" aria-hidden="true">↗</span>
+              Acessar Deploy Online <ArrowIcon className="arrow" />
             </a>
           )}
           <a
@@ -139,7 +140,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Ver no GitHub <span className="arrow" aria-hidden="true">↗</span>
+            Ver no GitHub <ArrowIcon className="arrow" />
           </a>
           <p id="dialogNote" className="micro" style={{ width: '100%', marginTop: '8px' }}>
             {project.note}

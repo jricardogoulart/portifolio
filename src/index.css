@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
 @font-face {
+  font-family: Repgam;
+  src: url("/Repgam-Italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
   font-family: MonaSemi;
   src: url('https://cdn.jsdelivr.net/gh/github/mona-sans@main/fonts/webfonts/static/MonaSansSemiCondensed-ExtraLight.woff2') format('woff2');
   font-weight: 250;
@@ -168,6 +176,8 @@ button svg, a svg {
 }
 
 .pill .arrow {
+  width: 1em;
+  height: 1em;
   font-size: 23px;
   line-height: .7;
 }
@@ -455,7 +465,7 @@ button svg, a svg {
   display: flex;
   align-items: baseline;
   color: var(--ivory, #fff);
-  font-family: "Repgam:Italic", "Repgam", "Arial Black", "Arial-BoldItalic", Arial, sans-serif;
+  font-family: Repgam, "Arial Black", "Arial-BoldItalic", Arial, sans-serif;
   font-style: italic;
   font-weight: 900;
   line-height: 1;
@@ -1326,7 +1336,6 @@ button svg, a svg {
   color: #fff;
   background: #1116;
   border-radius: 50%;
-  font-size: 24px;
   pointer-events: none;
 }
 
@@ -1439,6 +1448,8 @@ button svg, a svg {
 }
 
 .project-arrow {
+  width: 1em;
+  height: 1em;
   font-size: 26px;
   text-align: right;
 }

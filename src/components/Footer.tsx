@@ -1,4 +1,5 @@
 import { PERSONA } from '../data/portfolioData';
+import ArrowIcon from './ArrowIcon';
 
 interface FooterProps {
   onBackToTop: () => void;
@@ -23,7 +24,7 @@ export default function Footer({ onBackToTop }: FooterProps) {
             onBackToTop();
           }}
         >
-          Voltar ao topo <span aria-hidden="true">↑</span>
+          Voltar ao topo <ArrowIcon direction="up" />
         </a>
       </div>
 

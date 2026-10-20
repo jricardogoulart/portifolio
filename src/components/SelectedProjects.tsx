@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Project, BUILTIN_ART } from '../data/portfolioData';
+import ArrowIcon from './ArrowIcon';
 
 interface SelectedProjectsProps {
   projects: Project[];
@@ -96,9 +97,7 @@ export default function SelectedProjects({
               </span>
               <span className="discipline">{project.discipline}</span>
               <span className="year">{project.year}</span>
-              <span className="project-arrow" aria-hidden="true">
-                ↗
-              </span>
+              <ArrowIcon className="project-arrow" />
 
               <span className="project-preview" aria-hidden="true">
                 <img
@@ -123,7 +122,7 @@ export default function SelectedProjects({
             onNavigate('#contact');
           }}
         >
-          Vamos conversar <span className="arrow" aria-hidden="true">↗</span>
+          Vamos conversar <ArrowIcon className="arrow" />
         </a>
       </div>
     </section>

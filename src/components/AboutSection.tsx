@@ -1,4 +1,5 @@
 import { useEffect, useRef, useCallback } from 'react';
+import ArrowIcon from './ArrowIcon';
 
 interface AboutSectionProps {
   onStatementPointerMove: (e: React.PointerEvent) => void;
@@ -42,6 +43,16 @@ export default function AboutSection({
   const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const metaRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    void video.play().catch((error: unknown) => {
+      console.warn('Não foi possível iniciar o vídeo de fundo automaticamente.', error);
+    });
+  }, []);
 
   const updateWordProgress = useCallback(() => {
     const container = containerRef.current;
@@ -174,7 +185,7 @@ export default function AboutSection({
                 onNavigate?.('#contact');
               }}
             >
-              Iniciar conversa <span className="arrow" aria-hidden="true">↗</span>
+              Iniciar conversa <ArrowIcon className="arrow" />
             </a>
           </div>
         </div>

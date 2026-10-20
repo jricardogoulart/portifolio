@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import ArrowIcon from './ArrowIcon';
 
 interface AboutMeSectionProps {
   onNavigate?: (hash: string) => void;
@@ -60,7 +61,7 @@ export default function AboutMeSection({ onNavigate: _onNavigate }: AboutMeSecti
           aria-label="Baixar currículo em PDF de José Ricardo Goulart"
         >
           <span>Baixar Currículo (PDF)</span>
-          <span className="arrow" aria-hidden="true">↓</span>
+          <ArrowIcon direction="down" className="arrow" />
         </a>
       </div>
 
@@ -107,7 +108,7 @@ export default function AboutMeSection({ onNavigate: _onNavigate }: AboutMeSecti
               className="about-cv-link"
             >
               <span>Download CV Oficial</span>
-              <span aria-hidden="true">↗</span>
+              <ArrowIcon />
             </a>
           </div>
         </div>

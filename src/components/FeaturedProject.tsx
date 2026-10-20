@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Project, BUILTIN_ART } from '../data/portfolioData';
+import ArrowIcon from './ArrowIcon';
 
 interface FeaturedProjectProps {
   project: Project;
@@ -114,7 +115,7 @@ export default function FeaturedProject({
           />
         </span>
         <span className="art-center-arrow" aria-hidden="true">
-          ↗
+          <ArrowIcon />
         </span>
       </button>
 
@@ -140,7 +141,7 @@ export default function FeaturedProject({
               style={{ background: 'var(--orange)', color: '#000', fontWeight: 600 }}
               aria-label={`Acessar demonstração ao vivo de ${project.title}`}
             >
-              Ver Demonstração Online <span className="arrow" aria-hidden="true">↗</span>
+              Ver Demonstração Online <ArrowIcon className="arrow" />
             </a>
           )}
           <button
@@ -148,7 +149,7 @@ export default function FeaturedProject({
             className="pill motion-cta"
             onClick={() => onOpenProject(project)}
           >
-            Detalhes do projeto <span className="arrow" aria-hidden="true">↗</span>
+            Detalhes do projeto <ArrowIcon className="arrow" />
           </button>
         </div>
 

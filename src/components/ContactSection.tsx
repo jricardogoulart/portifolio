@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { PERSONA } from '../data/portfolioData';
+import ArrowIcon from './ArrowIcon';
 
 const PHRASES = [
   "Vamos criar algo que importa.",
@@ -100,7 +101,7 @@ export default function ContactSection() {
               aria-label={`Enviar e-mail para ${email}`}
             >
               <span>{email}</span>
-              <span className="arrow" aria-hidden="true">↗</span>
+              <ArrowIcon className="arrow" />
             </a>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
               <button
@@ -131,7 +132,7 @@ export default function ContactSection() {
                 style={{ color: '#fff', fontWeight: 500 }}
                 aria-label={`Perfil de ${PERSONA.fullName} no LinkedIn`}
               >
-                {linkedin.label} <span aria-hidden="true">↗</span>
+                {linkedin.label} <ArrowIcon />
               </a>
             )}
             {otherSocials.map((social) => (
@@ -141,7 +142,7 @@ export default function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {social.label} <span aria-hidden="true">↗</span>
+                {social.label} <ArrowIcon />
               </a>
             ))}
           </div>

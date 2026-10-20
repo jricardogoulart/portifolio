@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { PERSONA, BACKUP_HERO } from '../data/portfolioData';
 import LogoMark3D from './LogoMark3D';
+import ArrowIcon from './ArrowIcon';
 
 const VERTEX_SHADER = `
 attribute vec2 position;
@@ -643,7 +644,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             onNavigate('#work');
           }}
         >
-          Conheça os projetos <span className="arrow" aria-hidden="true">↘</span>
+          Conheça os projetos <ArrowIcon direction="down-right" className="arrow" />
         </a>
 
         <span className="hero-vertical" aria-hidden="true">
