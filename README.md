@@ -1,4 +1,4 @@
-# José Ricardo Goulart — Portfolio
+# José Goulart Dev
 
 <p align="left">
   <strong>Desenvolvedor Full Stack & Analista de Sistemas</strong> focado em arquiteturas escaláveis, engenharia de front-end de alta fidelidade e interfaces interativas.
@@ -61,12 +61,11 @@ Qualidade & Deploy    ESLint · Vercel · GitHub Actions
 
 | Projeto | Descrição | Stack | Links |
 | :--- | :--- | :--- | :--- |
-| **Summer Cardápio** | Cardápio digital responsivo com categorização fluida e experiência mobile-first para beach sports & bar. | JavaScript, CSS3 | [Deploy](https://jricardogoulart.github.io/summer-cardapio/) · [Repo](https://github.com/jricardogoulart/summer-cardapio) |
-| **Tyller Finance** | Plataforma para gestão orçamentária pessoal com tipagem estrita e dashboard financeiro. | TypeScript, React, Tailwind | [Repo](https://github.com/jricardogoulart/tyller-finance) |
-| **Mars Explorer** | Aplicação interativa consumindo a API oficial da NASA para exploração de imagens dos rovers em Marte. | Vue.js, NASA API, REST | [Repo](https://github.com/jricardogoulart/mars-photos) |
-| **ProFinance** | Sistema de inteligência financeira corporativa voltado à conciliação e relatórios de fluxo de caixa. | JavaScript, Gestão | [Repo](https://github.com/jricardogoulart/profinance) |
-| **Pokédex Interativa** | Interface com filtros rápidos por categoria, busca reativa e layout com CSS Grid. | JavaScript, CSS3 | [Repo](https://github.com/jricardogoulart/pokedex) |
-| **Calculadora Vue** | Aplicação de cálculo com manipulação reativa de estado e modularização de componentes. | Vue.js, Components | [Repo](https://github.com/jricardogoulart/CalculadoraVue) |
+| **Cardápio SummerBeach SportsBat** | Cardápio digital responsivo com categorização fluida e experiência mobile-first para beach sports & bar. | JavaScript, CSS3 | [Deploy](https://jricardogoulart.github.io/summer-cardapio/) · [Repo](https://github.com/jricardogoulart/summer-cardapio) |
+| **Tyller Finance** | Plataforma para gestão Financeira pessoal com tipagem estrita e dashboard financeiro. | TypeScript, React, Tailwind | [Repo](https://github.com/jricardogoulart/tyller-finance) |
+| **Mars Gallery** | Aplicação interativa consumindo a API oficial da NASA para exploração de imagens dos rovers em Marte. | Vue.js, NASA API, REST | [Repo](https://github.com/jricardogoulart/mars-photos) |
+| **Pokédex** | Interface com filtros rápidos por categoria, busca reativa e layout com CSS Grid. | JavaScript, CSS3 | [Repo](https://github.com/jricardogoulart/pokedex) |
+| **Calculadora Vue** | Estudo de  VUE Aplicação de cálculo com manipulação reativa de estado e modularização de componentes. | Vue.js, Components | [Repo](https://github.com/jricardogoulart/CalculadoraVue) |
 
 ---
 
@@ -122,7 +121,7 @@ npm run preview
 ## Sobre o Autor
 
 **José Ricardo Goulart Silva**  
-Analista de TI e Desenvolvedor Full Stack na R Raimundo Da Silva, responsável pela arquitetura e sustentação de ecossistemas digitais que atendem 35 indústrias parceiras. Graduado em Análise e Desenvolvimento de Sistemas pela FATEC Franca.
+Analista de TI e Desenvolvedor Full Stack na R Raimundo Da Silva, responsável pela arquitetura e sustentação de ecossistemas digitais que atendem +40 indústrias parceiras. Graduado em Análise e Desenvolvimento de Sistemas pela FATEC Franca.
 
 - **LinkedIn**: [/in/jricardogoulart](https://www.linkedin.com/in/jricardogoulart/)
 - **GitHub**: [@jricardogoulart](https://github.com/jricardogoulart)
@@ -131,5 +130,5 @@ Analista de TI e Desenvolvedor Full Stack na R Raimundo Da Silva, responsável p
 ---
 
 <p align="center">
-  <small>© 2026 José Ricardo Goulart · Feito com React 19, TypeScript e GSAP.</small>
+  <small>© 2026 José Ricardo Goulart ·</small>
 </p>
