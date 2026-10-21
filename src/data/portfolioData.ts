@@ -84,10 +84,10 @@ export const PROJECTS: Project[] = [
   {
     id: "01",
     slug: "summer-cardapio",
-    title: "Summer Cardápio",
+    title: "Summer Menu",
     repository: "summer-cardapio",
     year: "2026",
-    discipline: "Cardápio digital",
+    discipline: "Menu digital",
     role: "Repositório público de José Goulart",
     summary: "Um cardápio digital web responsivo desenvolvido para o Summer Sport Bar. Organiza produtos por categorias, com preços, descrições e fotos, incluindo compartilhamento dinâmico e realização de pedidos diretamente pelo WhatsApp. Em produção e com deploy ativo no GitHub Pages.",
     technologies: ["JavaScript", "HTML5", "CSS3", "CSV", "GitHub Pages"],
@@ -149,7 +149,7 @@ export const PROJECTS: Project[] = [
   {
     id: "03",
     slug: "mars-photos",
-    title: "Mars Photos",
+    title: "Mars Gallery",
     repository: "mars-photos",
     year: "2024",
     discipline: "Vue & API NASA",
