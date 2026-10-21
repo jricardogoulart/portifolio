@@ -45,3 +45,6 @@ pnpm-debug.log*
 # ── Misc ──────────────────────────────────────────────
 *.local
 plano_gerenciamento_usuarios.md
+
+# ── Antigravity IDE (skills locais — não versionar) ───
+.agents/
