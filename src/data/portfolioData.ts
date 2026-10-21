@@ -240,23 +240,23 @@ export const PROJECTS: Project[] = [
 export const SERVICES: Service[] = [
   {
     id: "01",
-    title: "Front-end",
-    scope: "React / TypeScript / Interfaces reativas",
-    text: "React e TypeScript fazem parte do foco atual declarado no perfil. O repositório do portfólio reúne essa base em uma aplicação com tipografia editorial e interações visuais.",
-    deliverables: "No GitHub: portfólio React/TypeScript e aplicações de estudo em Vue.js."
+    title: "Front-end Architecture",
+    scope: "React / TypeScript / Tailwind / Interfaces Reativas",
+    text: "Construção de SPAs eficientes e modulares, priorizando performance, UI/UX refinado e sistemas de design centralizados via tokens.",
+    deliverables: "Aplicações web completas, design systems e interfaces responsivas."
   },
   {
     id: "02",
-    title: "APIs & dados",
-    scope: "Integrações REST / Vue.js / SQLite",
-    text: "O perfil declara interesse em APIs RESTful e integridade de dados. Mars Photos e Pokédex exploram APIs públicas; ProFinance evidencia persistência SQLite no código.",
-    deliverables: "No GitHub: integrações com NASA e PokéAPI; contas e transações em SQLite."
+    title: "Back-end & Banco de Dados",
+    scope: "Node.js / APIs REST / SQLite / Prisma",
+    text: "Desenvolvimento de rotas, microsserviços e persistência de dados estruturada com foco em integridade, regras de negócio e performance de query.",
+    deliverables: "APIs RESTful, modelagem de banco de dados e rotas de autenticação."
   },
   {
     id: "03",
-    title: "Aplicações",
-    scope: "Web / Electron / Node.js",
-    text: "Node.js integra o foco declarado no perfil. Os projetos públicos incluem experiências web e uma aplicação desktop de controle financeiro com Electron e comunicação via preload.",
-    deliverables: "No GitHub: cardápio digital, portfólio pessoal e ProFinance desktop."
+    title: "Sistemas & Desktop Apps",
+    scope: "Electron / Automation / MiniERP / Python",
+    text: "Desenvolvimento de softwares de gestão (ERP/CRM), soluções desktop cross-platform e scripts de automação para fluxos operacionais e relatórios.",
+    deliverables: "Softwares desktop (Electron), scripts de automação e painéis analíticos."
   }
 ];
