@@ -55,7 +55,7 @@ export default function AboutMeSection({ onNavigate: _onNavigate }: AboutMeSecti
         </div>
 
         <a
-          href="/curriculo-jose-ricardo-goulart.pdf"
+          href="/docs/curriculo-jose-ricardo-goulart.pdf"
           download="Curriculo-Jose-Ricardo-Goulart.pdf"
           className="pill download-cv-btn motion-cta"
           aria-label="Baixar currículo em PDF de José Ricardo Goulart"
@@ -70,7 +70,7 @@ export default function AboutMeSection({ onNavigate: _onNavigate }: AboutMeSecti
         <div className="about-profile-card reveal-item motion-card" style={{ '--motion-delay': '120ms' } as React.CSSProperties}>
           <div className="about-avatar-wrapper">
             <img
-              src="/assets/jose-goulart-hero.jpg"
+              src="/images/profile/jose-goulart.jpg"
               alt="José Ricardo Goulart Silva"
               className="about-avatar-img"
               width={180}
@@ -103,7 +103,7 @@ export default function AboutMeSection({ onNavigate: _onNavigate }: AboutMeSecti
 
           <div className="about-profile-cta">
             <a
-              href="/curriculo-jose-ricardo-goulart.pdf"
+              href="/docs/curriculo-jose-ricardo-goulart.pdf"
               download="Curriculo-Jose-Ricardo-Goulart.pdf"
               className="about-cv-link"
             >

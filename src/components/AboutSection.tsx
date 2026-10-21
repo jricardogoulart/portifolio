@@ -175,7 +175,7 @@ export default function AboutSection({
             muted
             playsInline
             preload="auto"
-            src="/about-video.mp4"
+            src="/video/about.mp4"
           />
           <div className="about-video-overlay" />
         </div>

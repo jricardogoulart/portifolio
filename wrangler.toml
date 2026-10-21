@@ -1,0 +1,10 @@
+﻿# Cloudflare Pages — configuração como código
+# Framework: Vite + React + TypeScript
+# Build command:  npm run build
+# Build output:   dist/
+# Install command: npm ci
+
+name = "portifolio-jg"
+compatibility_date = "2024-01-01"
+
+pages_build_output_dir = "dist"

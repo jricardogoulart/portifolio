@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: Repgam;
-  src: url("/Repgam-Italic.ttf") format("truetype");
+  src: url("/fonts/repgam-italic.ttf") format("truetype");
   font-style: italic;
   font-weight: 400;
   font-display: swap;
